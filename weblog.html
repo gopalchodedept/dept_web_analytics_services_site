@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Measurement Framework | DEPT® Web Analytics</title>
+<title>The Web Log | DEPT® Web Analytics</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
@@ -743,9 +743,9 @@ a.post:hover{transform:translateY(-5px);box-shadow:0 16px 32px -20px rgba(10,10,
       <li><a href="index.html">Home</a></li>
       <li><a href="google-analytics.html">Google Analytics</a></li>
       <li><a href="adobe.html">Adobe</a></li>
-      <li><a href="measurement.html" class="active">Measurement</a></li>
+      <li><a href="measurement.html">Measurement</a></li>
       <li><a href="growth.html">Growth</a></li>
-      <li><a href="weblog.html">Web Log</a></li>
+      <li><a href="weblog.html" class="active">Web Log</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="faq.html">FAQ</a></li>
     </ul>
@@ -753,174 +753,26 @@ a.post:hover{transform:translateY(-5px);box-shadow:0 16px 32px -20px rgba(10,10,
 </nav>
 <header class="page-hero">
   <div class="wrap">
-    <div class="eyebrow">Practice, strategy</div>
-    <h1>Measurement<br><span class="outline">Framework.</span></h1>
-    <p class="lede">Before a single tag is written, someone has to decide what the business is actually trying to prove. A measurement framework identifies the KPIs that matter, defines exactly how each one is calculated, and assigns every metric an owner, so reporting starts with answers instead of exports.</p>
+    <div class="eyebrow">Field notes from the team</div>
+    <h1>The Web<br><span class="outline">Log.</span></h1>
+    <p class="lede">Fun fact: "blog" is short for "web log", so this is the most literally named page on the site. Long-form, plain-English deep dives into how the things we build actually work: the platforms, the plumbing, and the people who do it. New entries land here as we write them.</p>
   </div>
 </header>
 
-<section class="dark" style="padding-top:70px">
+<section style="padding-top:30px">
   <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">The philosophy</div>
-      <p class="bigquote">"Measurement is how we prove an experience doesn't just drive engagement; <span class="blue">it moves the business.</span>"</p>
-      <p class="quote-sub">// activity metrics are useful as diagnostic indicators, but they are never the story. Outcomes are the story.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">The core distinction</div>
-      <h2 class="display">Outcomes<br>Over Activity</h2>
-    </div>
-    <div class="oa-split reveal">
-      <div class="oa-col">
-        <h4>Activity metrics</h4>
-        <p class="ex">Page views. Sessions. Impressions. Clicks.</p>
-        <p>Easy to produce. Easy to present. Useful as diagnostic indicators, but they only tell you the engine is on, not whether it is taking you anywhere.</p>
+    <div class="post-grid">
+      <a class="post reveal" href="article-aep.html">
+        <div class="pmeta"><span>Entry 001</span><span>Adobe · AEP</span><span>~14 min read</span></div>
+        <h3>How The Adobe Stack Actually Works</h3>
+        <p>What AEP really is, why XDM is the data layer of the Adobe world, how data gets out of an AEM site, and how the Web SDK ties it all together. Plus: who does this work, and what it takes to learn it.</p>
+        <div class="tags"><span>AEP</span><span>XDM</span><span>Web SDK</span><span>AEM</span><span>Careers</span></div>
+      </a>
+      <div class="post ghost reveal">
+        <div class="pmeta"><span>Entry 002</span><span>Coming soon</span></div>
+        <h3>Next Entry Loading<span class="gcaret"></span></h3>
+        <p>More field notes are on the way: GA4 internals, consent mode, server-side tagging, CJA data views, and whatever the team gets nerd-sniped by next. Watch this space.</p>
       </div>
-      <div class="oa-col win">
-        <h4>Outcomes</h4>
-        <p class="ex">A booked meeting. A qualified inquiry. A returning account. Pipeline created.</p>
-        <p>The moments that mean the business actually moved. Every KPI in the framework ladders up to one of these, and anything that doesn't gets cut.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="grey">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">The rules we hold ourselves to</div>
-      <h2 class="display">Five Principles</h2>
-    </div>
-    <div class="prin-grid">
-      <div class="prin reveal">
-        <div class="num">01</div>
-        <h3>Signal Over Noise</h3>
-        <p>We track fewer things better, not everything poorly. If a metric is noisy, we cut it.</p>
-      </div>
-      <div class="prin reveal">
-        <div class="num">02</div>
-        <h3>Actionability Is Required</h3>
-        <p>If a metric does not inform a decision, it is not in the framework. Full stop.</p>
-      </div>
-      <div class="prin reveal">
-        <div class="num">03</div>
-        <h3>Tiered By Readiness</h3>
-        <p>We separate what is measurable today (MVP) from what unlocks post-launch, so nothing blocks shipping.</p>
-      </div>
-      <div class="prin reveal">
-        <div class="num">04</div>
-        <h3>Owned, Not Shared</h3>
-        <p>Every KPI has a designated owner who responds when something is off. Shared ownership is no ownership.</p>
-      </div>
-      <div class="prin reveal">
-        <div class="num">05</div>
-        <h3>Evolving By Design</h3>
-        <p>The framework is reviewed quarterly. What matters in Q1 may not be what matters in Q3.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">KPI architecture</div>
-      <h2 class="display">Every KPI,<br>Fully Specified</h2>
-      <p class="lede">A KPI that lives in a slide title is a wish. In our framework, every KPI is documented across six dimensions, deep enough that an implementation team can build it without a single follow-up meeting.</p>
-    </div>
-    <div class="adobe-grid">
-      <div class="adobe-card reveal">
-        <span class="mono">KPI + why it matters</span>
-        <h3>The Point</h3>
-        <p>What we are tracking and why it connects to a business or program goal. If this line is weak, the KPI doesn't make the cut.</p>
-      </div>
-      <div class="adobe-card reveal">
-        <span class="mono">Building blocks</span>
-        <h3>The Raw Inputs</h3>
-        <p>The inputs the system must capture to calculate the KPI. These feed straight into data layer specs and XDM field mappings.</p>
-      </div>
-      <div class="adobe-card reveal">
-        <span class="mono">KPI calculation</span>
-        <h3>The Formula</h3>
-        <p>The exact formula that turns building blocks into a single, comparable KPI value. No ambiguity, no two teams computing it differently.</p>
-      </div>
-      <div class="adobe-card reveal">
-        <span class="mono">Reporting metrics</span>
-        <h3>The Outputs</h3>
-        <p>The derived views teams read and act on, segmented by platform, topic, persona, account tier, or whatever the business slices by.</p>
-      </div>
-      <div class="adobe-card reveal">
-        <span class="mono">Business owner</span>
-        <h3>The Accountable Team</h3>
-        <p>Who monitors this KPI and responds when something is off. Named before launch, not after the first bad week.</p>
-      </div>
-      <div class="adobe-card reveal">
-        <span class="mono">Readiness</span>
-        <h3>MVP Or Post-Launch</h3>
-        <p>Whether the KPI is measurable at MVP with current tools, or requires an integration that lands after launch.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="grey">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">What it looks like in practice</div>
-      <h2 class="display">A Worked Example</h2>
-      <p class="lede">One KPI from a brand-authority framework, documented to the standard above. Every KPI we ship gets this treatment.</p>
-    </div>
-    <div class="kpi-card reveal">
-      <div class="kpi-head">
-        <div>
-          <h3>AI Citation Rate (Brand Visibility Score)</h3>
-          <p class="why">Answers "is the AI mentioning the brand when a user asks a relevant industry question?", the modern equivalent of a page-one search ranking.</p>
-        </div>
-        <span class="badge-mvp">MVP · Marketing Ops</span>
-      </div>
-      <div class="kpi-grid">
-        <div class="kpi-cell">
-          <h5>Building blocks</h5>
-          <ul>
-            <li>Pre-defined industry and intent-relevant prompts (30 to 100)</li>
-            <li>Total brand citations in LLM responses</li>
-            <li>Total relevant prompts tested</li>
-          </ul>
-        </div>
-        <div class="kpi-cell">
-          <h5>KPI calculation</h5>
-          <p class="kpi-calc">Citation Rate % =<br>Brand Citations /<br>Prompts Tested × 100</p>
-        </div>
-        <div class="kpi-cell">
-          <h5>Reporting metrics</h5>
-          <ul>
-            <li>Citation rate by LLM platform</li>
-            <li>Citation rate by topic cluster</li>
-            <li>Citation position (first vs later)</li>
-          </ul>
-        </div>
-        <div class="kpi-cell">
-          <h5>Readiness</h5>
-          <p>Measurable at MVP with current tooling. Owner monitors weekly; reviewed with the rest of the framework quarterly.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="dark">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">Where it fits</div>
-      <h2 class="display">The Framework<br>Comes First</h2>
-      <p class="lede">Everything else on this site implements it. The KPIs define the building blocks; the building blocks define the data layer specs and XDM mappings; the specs define the tags; the tags feed the dashboards. Deliverables: a KPI architecture document plus an implementation spreadsheet mapping every metric to its data sources, calculation method, and platform fields, GA4 events on one side, XDM and CJA attributes on the other.</p>
-      <a class="pill blue" href="google-analytics.html#datalayer" style="margin-top:28px;display:inline-block;margin-right:12px">From KPI to data layer →</a>
-      <a class="pill blue" href="adobe.html" style="margin-top:28px;display:inline-block">From KPI to XDM →</a>
     </div>
   </div>
 </section>

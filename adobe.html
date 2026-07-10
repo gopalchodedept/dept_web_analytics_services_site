@@ -665,6 +665,73 @@ body{overflow-x:hidden}
   .kpi-head{padding:20px 22px}
 }
 
+/* ---------- the web log: hub cards ---------- */
+.post-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:54px}
+@media(max-width:880px){.post-grid{grid-template-columns:1fr}}
+a.post{display:block;text-decoration:none;color:inherit;border:1px solid var(--ink);background:var(--paper);padding:34px 32px;transition:transform .25s,box-shadow .25s}
+a.post:hover{transform:translateY(-5px);box-shadow:0 16px 32px -20px rgba(10,10,10,.4)}
+.post .pmeta{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);margin-bottom:14px;display:flex;gap:14px;flex-wrap:wrap}
+.post h3{font-family:var(--display);font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:clamp(20px,2.3vw,30px);line-height:1.06}
+.post p{margin-top:14px;font-size:14.5px;color:#3a3a37;line-height:1.65}
+.post .tags{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap}
+.post .tags span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:4px 8px;color:#3a3a37}
+.post.ghost{border-style:dashed;border-color:var(--mid);opacity:.75}
+.post.ghost h3{color:var(--mid)}
+.gcaret{display:inline-block;width:9px;height:16px;background:var(--signal);margin-left:6px;vertical-align:-2px;animation:sbBlink 1s steps(1) infinite}
+
+/* ---------- article layout ---------- */
+.art{max-width:840px}
+.artmeta{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);display:flex;gap:18px;flex-wrap:wrap;margin-top:18px}
+.art h2{font-family:var(--display);font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:clamp(24px,3vw,38px);line-height:1.05;margin:64px 0 8px}
+.art h2 .no{color:var(--signal);margin-right:10px}
+.art p{font-size:16px;line-height:1.78;color:#2c2c2a;margin:18px 0}
+.art strong{color:var(--ink)}
+.art code{font-family:var(--mono);font-size:.86em;background:var(--grey);padding:2px 7px;border:1px solid var(--line)}
+.art ul,.art ol{margin:20px 0;padding-left:2px}
+.art ul li{list-style:none;position:relative;padding:7px 0 7px 24px;font-size:15.5px;line-height:1.65;color:#2c2c2a}
+.art ul li::before{content:"";position:absolute;left:0;top:17px;width:12px;height:2px;background:var(--signal)}
+.art ol{counter-reset:step}
+.art ol li{list-style:none;counter-increment:step;position:relative;padding:10px 0 10px 46px;font-size:15.5px;line-height:1.65;color:#2c2c2a}
+.art ol li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:10px;font-family:var(--display);font-weight:900;color:var(--signal);font-size:19px}
+.tldr{border:1px solid var(--signal);background:var(--signal-soft);padding:28px 32px;margin:38px 0}
+.tldr h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--signal);margin-bottom:12px}
+.tldr p{font-size:15px;margin:8px 0}
+.art .fig{border:1px solid var(--line);background:#fff;padding:16px;margin:34px 0}
+.art .fig img{width:100%;height:auto;display:block}
+.art .fig figcaption{font-family:var(--mono);font-size:11px;color:var(--mid);margin-top:12px;letter-spacing:.05em}
+.art .fig figcaption a{color:var(--signal)}
+.art .anim-fig{border:1px solid var(--line);background:#fff;margin:34px 0;overflow:hidden}
+.art .anim-fig svg{display:block;width:100%}
+.art .anim-fig text{font-family:var(--mono);letter-spacing:.05em}
+.nuance{border-left:3px solid var(--signal);background:var(--grey);padding:18px 24px;margin:22px 0}
+.nuance p{margin:6px 0;font-size:15px}
+.nuance .nlab{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
+.jd{border:1px solid var(--ink);background:var(--paper);padding:30px;margin-top:28px}
+.jd h4{text-transform:uppercase;font-size:17px}
+.jd .jrole{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);margin-bottom:10px;display:block}
+.jd h5{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin:18px 0 6px}
+.jd li{font-size:14px!important}
+.backlink{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--signal);padding-bottom:3px;text-decoration:none;color:inherit}
+
+/* article diagram animations */
+.ar-dot{animation:arDot 4.6s linear infinite}
+.ar-dot.d2{animation-delay:1.15s}.ar-dot.d3{animation-delay:2.3s}.ar-dot.d4{animation-delay:3.45s}
+@keyframes arDot{0%{transform:translate(0,0);opacity:0}5%{opacity:1}44%{transform:translate(var(--tx),var(--ty));opacity:1}50%,100%{transform:translate(var(--tx),var(--ty));opacity:0}}
+.ar-dot2{animation:arDot2 4.6s linear infinite}
+.ar-dot2.d2{animation-delay:1.15s}.ar-dot2.d3{animation-delay:2.3s}
+@keyframes arDot2{0%,50%{transform:translate(0,0);opacity:0}55%{opacity:1}94%{transform:translate(var(--tx),var(--ty));opacity:1}100%{opacity:0}}
+.ar-node{transform-origin:center;transform-box:fill-box;animation:arNode 4.6s infinite}
+@keyframes arNode{0%,44%{transform:scale(1)}50%{transform:scale(1.16)}58%,100%{transform:scale(1)}}
+.ar-chip{transform-origin:center;transform-box:fill-box;animation:arChip 4.6s infinite}
+.ar-chip.c2{animation-delay:1.15s}.ar-chip.c3{animation-delay:2.3s}
+@keyframes arChip{0%{opacity:0;transform:translateY(6px)}6%,38%{opacity:1;transform:none}46%,100%{opacity:0}}
+.ar-conv{animation:arConv 4s ease-in-out infinite}
+.ar-conv.v2{animation-delay:.4s}.ar-conv.v3{animation-delay:.8s}.ar-conv.v4{animation-delay:1.2s}
+@keyframes arConv{0%{transform:translate(0,0);opacity:0}10%{opacity:1}55%{transform:translate(var(--tx),var(--ty));opacity:1}62%,100%{transform:translate(var(--tx),var(--ty));opacity:0}}
+@media(max-width:700px){.art .anim-fig svg{height:auto}}
+/* nav: 8 items fit */
+@media(max-width:1240px) and (min-width:881px){.navlinks{gap:20px}.navlinks a{font-size:12px;letter-spacing:.06em}}
+
 </style>
 </head>
 <body>
@@ -678,6 +745,7 @@ body{overflow-x:hidden}
       <li><a href="adobe.html" class="active">Adobe</a></li>
       <li><a href="measurement.html">Measurement</a></li>
       <li><a href="growth.html">Growth</a></li>
+      <li><a href="weblog.html">Web Log</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="faq.html">FAQ</a></li>
     </ul>
@@ -697,6 +765,7 @@ body{overflow-x:hidden}
       <div class="eyebrow">The other half of the practice</div>
       <h2 class="display">Adobe,<br>End to End.</h2>
       <p class="lede">For enterprise clients, we run the full Adobe Experience Platform stack, from the first XDM schema to a personalized experience served back to the visitor. One pipeline: the website pushes events through the <strong>Web SDK</strong> to the <strong>Edge Network</strong>, AEP stitches them into a <strong>real-time customer profile</strong>, <strong>CJA</strong> turns them into cross-channel dashboards, and <strong>Real-Time CDP audiences</strong> power personalization in <strong>AJO</strong>. We design, build, and migrate every link in that chain.</p>
+      <a class="pill blue" href="article-aep.html" style="margin-top:26px;display:inline-block">New on the Web Log: how AEP actually works →</a>
     </div>
 
     <div class="diagram reveal">
