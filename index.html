@@ -589,6 +589,82 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
 .sigband:hover .go-arrow{animation:none;transform:translateX(16px)}
 @media (prefers-reduced-motion: reduce){.sigband .hl{background-size:100% 100%;color:var(--signal)}}
 
+/* ---------- sigband v2: rotating question ---------- */
+.rotwrap{display:inline-grid;text-align:left;vertical-align:top}
+.rotwrap span{grid-area:1/1;background:#fff;color:var(--signal);padding:2px 18px 8px;width:max-content;white-space:nowrap;opacity:0;transform:translateY(.5em);animation:sbRot 9.6s infinite}
+.rotwrap span:nth-child(2){animation-delay:3.2s}
+.rotwrap span:nth-child(3){animation-delay:6.4s}
+@keyframes sbRot{0%{opacity:0;transform:translateY(.55em)}4%{opacity:1;transform:translateY(0)}29%{opacity:1;transform:translateY(0)}33%{opacity:0;transform:translateY(-.55em)}100%{opacity:0;transform:translateY(-.55em)}}
+.sb-caret{display:inline-block;width:9px;height:15px;background:#fff;margin-left:8px;vertical-align:-2px;animation:sbBlink 1s steps(1) infinite}
+@keyframes sbBlink{50%{opacity:0}}
+@media (prefers-reduced-motion: reduce){.rotwrap span{animation:none!important;opacity:0}.rotwrap span:first-child{opacity:1;transform:none}}
+
+/* ---------- timeline node pop on reveal ---------- */
+.phase.in .node{animation:nodePop .55s ease .1s backwards}
+@keyframes nodePop{0%{transform:scale(.6)}55%{transform:scale(1.16)}100%{transform:scale(1)}}
+
+/* ---------- GA page: audit console + migration bridge vignettes ---------- */
+.big-anim{border:1px solid var(--line);background:#fff;margin:40px 0 8px;overflow:hidden}
+.big-anim svg{display:block;width:100%;height:150px}
+.big-anim text{font-family:var(--mono);letter-spacing:.06em}
+.ga-mag{animation:gaMag 5.5s ease-in-out infinite alternate}
+@keyframes gaMag{from{transform:translateX(0)}to{transform:translateX(660px)}}
+.ga-st{opacity:0;animation:gaSt 11s infinite}
+.ga-st.g2{animation-delay:1.8s}.ga-st.g3{animation-delay:3.7s}.ga-st.g4{animation-delay:5.5s}
+@keyframes gaSt{0%,14%{opacity:0}19%,94%{opacity:1}100%{opacity:0}}
+.ga-hop{animation:gaHop 6.6s ease-in-out infinite}
+.ga-hop.g2{animation-delay:2.2s}.ga-hop.g3{animation-delay:4.4s}
+@keyframes gaHop{0%{transform:translate(0,0);opacity:0}5%{opacity:1}25%{transform:translate(300px,-58px)}45%{transform:translate(600px,0);opacity:1}52%,100%{transform:translate(600px,0);opacity:0}}
+
+/* ---------- architecture diagrams: traveling pulses ---------- */
+.ga-d1{animation:gaD1 4.2s linear infinite}
+@keyframes gaD1{0%{transform:translate(0,0);opacity:0}3%{opacity:1}20%{transform:translate(100px,0);opacity:1}24%,100%{transform:translate(100px,0);opacity:0}}
+.ga-d2{animation:gaD2 4.2s linear infinite}
+@keyframes gaD2{0%,30%{transform:translate(0,0);opacity:0}33%{opacity:1}50%{transform:translate(100px,0);opacity:1}54%,100%{transform:translate(100px,0);opacity:0}}
+.ga-fan{animation:gaFan 4.2s linear infinite}
+@keyframes gaFan{0%,60%{transform:translate(0,0);opacity:0}63%{opacity:1}84%{transform:translate(100px,var(--dy));opacity:1}88%,100%{transform:translate(100px,var(--dy));opacity:0}}
+.ga-hit1{animation:gaHit1 4.2s linear infinite}
+@keyframes gaHit1{0%,19%{opacity:0}23%{opacity:.35}30%,100%{opacity:0}}
+.ga-hit2{animation:gaHit2 4.2s linear infinite}
+@keyframes gaHit2{0%,49%{opacity:0}53%{opacity:.3}60%,100%{opacity:0}}
+.ad-d{animation:adD 5s linear infinite}
+@keyframes adD{0%{transform:translate(0,0);opacity:0}4%{opacity:1}16%{transform:translate(60px,0);opacity:1}19%,100%{transform:translate(60px,0);opacity:0}}
+.ad-d.t2{animation-delay:1s}
+.ad-fan{animation:adFan 5s linear infinite}
+@keyframes adFan{0%,40%{transform:translate(0,0);opacity:0}44%{opacity:1}60%{transform:translate(78px,var(--dy));opacity:1}64%,100%{transform:translate(78px,var(--dy));opacity:0}}
+.ad-d3{animation:adD3 5s linear infinite}
+@keyframes adD3{0%,66%{transform:translate(0,0);opacity:0}70%{opacity:1}84%{transform:translate(56px,0);opacity:1}88%,100%{transform:translate(56px,0);opacity:0}}
+
+/* clickable thread cards */
+a.svc{display:block;color:inherit;text-decoration:none;cursor:pointer}
+a.svc .more{border-bottom:2px solid var(--signal);padding-bottom:3px}
+
+/* dispatch desk + contact photos: b&w, colour on hover */
+.contact .cphoto img{filter:grayscale(100%);transition:filter .4s}
+.contact:hover .cphoto img{filter:none}
+
+/* ---------- mobile & tablet pass ---------- */
+body{overflow-x:hidden}
+@media(max-width:700px){
+  .big-anim svg{height:86px}
+  .ph-anim svg{height:88px}
+  .svc-anim svg{height:74px}
+  .sigband .wrap{padding-top:56px;padding-bottom:56px}
+  .stat{padding:26px 22px}
+  .oa-col,.prin,.kpi-cell{padding:26px 22px}
+}
+@media(max-width:560px){
+  .sigband h2{font-size:clamp(23px,8vw,34px)}
+  .rotwrap span{padding:2px 10px 6px}
+  .contact h3{font-size:15px}
+}
+@media(max-width:460px){
+  .contact{grid-template-columns:1fr}
+  .contact .cphoto{width:100%;height:220px}
+  .contact .cphoto img{object-position:center 28%}
+  .kpi-head{padding:20px 22px}
+}
+
 </style>
 </head>
 <body>
@@ -635,9 +711,9 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
 <a class="sigband" href="growth.html">
   <div class="wrap">
     <div>
-      <div class="mono-line">// for <span class="hl">growth</span>, <span class="hl hl2">client partners</span> &amp; <span class="hl hl3">anyone client-facing</span></div>
-      <h2>Caught A Signal?</h2>
-      <p>A client mentioned a redesign. Doubted their numbers. Asked what to do with their Adobe licenses. Don't let it pass: the play-by-play for turning that one sentence into a signed, staffed project is one page away.</p>
+      <div class="mono-line">// caught a signal?<span class="sb-caret"></span></div>
+      <h2>Are You<br><span class="rotwrap"><span>In Growth?</span><span>A Client Partner?</span><span>Client-Facing?</span></span></h2>
+      <p>Then this band is yours. A client mentioned a redesign, doubted their numbers, or asked what to do with their Adobe licenses. Don't let the sentence pass: the play-by-play for turning it into a signed, staffed project is one click away.</p>
     </div>
     <div class="go">
       <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
@@ -660,11 +736,11 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
       <p class="lede">Everything we deliver sits on two platforms, the Google stack (GA4 + GTM) and the Adobe stack (AEP, Web SDK, CJA). Across both, the work falls into four practice areas.</p>
     </div>
     <div class="svc-grid">
-      <article class="svc reveal">
+      <a class="svc reveal" href="google-analytics.html#audit">
         <span class="num">01</span>
         <span class="cname">thread/01 · the full sweep</span>
         <h3>Google Analytics Audit</h3>
-        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid slice">
+        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid meet">
   <rect x="30" y="18" width="290" height="16" fill="#f4f4f2"/><rect x="38" y="23" width="90" height="6" fill="#8a8a86"/>
   <rect x="30" y="42" width="290" height="16" fill="#f4f4f2"/><rect x="38" y="47" width="120" height="6" fill="#8a8a86"/>
   <rect x="30" y="66" width="290" height="16" fill="#f4f4f2"/><rect x="38" y="71" width="74" height="6" fill="#8a8a86"/>
@@ -681,13 +757,13 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
           <li>GTM container hygiene &amp; data layer health check</li>
         </ul>
       
-        <a class="more" href="google-analytics.html#audit">Explore the audit →</a>
-      </article>
-      <article class="svc reveal">
+        <span class="more">Explore the audit →</span>
+      </a>
+      <a class="svc reveal" href="google-analytics.html">
         <span class="num">02</span>
         <span class="cname">thread/02 · pixel perfect</span>
         <h3>Marketing Pixels Implementation</h3>
-        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid slice">
+        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid meet">
   <rect x="212" y="36" width="36" height="24" fill="#0a0a0a"/><text x="230" y="52" font-size="9" fill="#fff" text-anchor="middle">GTM</text>
   <line x1="230" y1="36" x2="90" y2="22" stroke="#8a8a86" stroke-width="1" opacity=".4"/>
   <line x1="230" y1="40" x2="90" y2="72" stroke="#8a8a86" stroke-width="1" opacity=".4"/>
@@ -713,13 +789,13 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
           <li>Validation in each platform's debugger</li>
         </ul>
       
-        <a class="more" href="google-analytics.html">Explore Google Analytics →</a>
-      </article>
-      <article class="svc reveal">
+        <span class="more">Explore Google Analytics →</span>
+      </a>
+      <a class="svc reveal" href="google-analytics.html#migration">
         <span class="num">03</span>
         <span class="cname">thread/03 · the big move</span>
         <h3>Website Migration</h3>
-        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid slice">
+        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid meet">
   <rect x="52" y="30" width="84" height="46" fill="#f4f4f2" stroke="#8a8a86" stroke-width="1.2"/>
   <text x="94" y="90" font-size="9.5" fill="#8a8a86" text-anchor="middle">old cms</text>
   <rect class="sa-newpulse" x="322" y="30" width="84" height="46" fill="#fff" stroke="#2f5bff" stroke-width="1.5"/>
@@ -736,13 +812,13 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
           <li>GTM &amp; GA4 migration, launch support</li>
         </ul>
       
-        <a class="more" href="google-analytics.html#migration">Explore migrations →</a>
-      </article>
-      <article class="svc reveal">
+        <span class="more">Explore migrations →</span>
+      </a>
+      <a class="svc reveal" href="adobe.html">
         <span class="num">04</span>
         <span class="cname">thread/04 · the red stack</span>
         <h3>Adobe Experience Stack</h3>
-        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid slice">
+        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid meet">
   <line x1="80" y1="48" x2="380" y2="48" stroke="#8a8a86" stroke-width="1" opacity=".45"/>
   <circle class="sa-flow" cx="80" cy="48" r="4.5" fill="#2f5bff"/>
   <g class="sa-node"><circle cx="80" cy="48" r="13" fill="#0a0a0a"/></g><text x="80" y="78" font-size="9" fill="#0a0a0a" text-anchor="middle" font-weight="700">SDK</text>
@@ -756,13 +832,13 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
           <li>Adobe Journey Optimizer (AJO)</li>
         </ul>
       
-        <a class="more" href="adobe.html">Explore the Adobe stack →</a>
-      </article>
-      <article class="svc reveal">
+        <span class="more">Explore the Adobe stack →</span>
+      </a>
+      <a class="svc reveal" href="measurement.html">
         <span class="num">05</span>
         <span class="cname">thread/05 · first principles</span>
         <h3>Measurement Framework Strategy</h3>
-        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid slice">
+        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid meet">
   <circle cx="230" cy="48" r="34" fill="none" stroke="#8a8a86" stroke-width="1" opacity=".45"/>
   <circle cx="230" cy="48" r="22" fill="none" stroke="#8a8a86" stroke-width="1" opacity=".6"/>
   <circle cx="230" cy="48" r="10" fill="none" stroke="#0a0a0a" stroke-width="1.4"/>
@@ -778,13 +854,13 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
           <li>Building blocks, calculations &amp; reporting metrics per KPI</li>
           <li>Owners and MVP vs post-launch readiness tiers</li>
         </ul>
-        <a class="more" href="measurement.html">Explore the framework →</a>
-      </article>
-      <article class="svc reveal">
+        <span class="more">Explore the framework →</span>
+      </a>
+      <a class="svc reveal" href="about.html#clients">
         <span class="num">06</span>
         <span class="cname">thread/06 · the signal room</span>
         <h3>Dashboards &amp; Reporting</h3>
-        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid slice">
+        <div class="svc-anim" aria-hidden="true"><svg viewBox="0 0 460 96" preserveAspectRatio="xMidYMid meet">
   <rect class="sa-bar" x="70" y="34" width="26" height="46" fill="#2f5bff" opacity=".5"/>
   <rect class="sa-bar b2" x="108" y="46" width="26" height="34" fill="#2f5bff" opacity=".7"/>
   <rect class="sa-bar b3" x="146" y="24" width="26" height="56" fill="#2f5bff"/>
@@ -799,8 +875,8 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
           <li>Tableau dashboards via Snowflake + the GA4 API</li>
           <li>CJA Analysis Workspace builds</li>
         </ul>
-        <a class="more" href="about.html#clients">See it in client work →</a>
-      </article>
+        <span class="more">See it in client work →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -836,7 +912,7 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
       </div>
       <div class="stat reveal">
         <div class="n">0</div>
-        <p>Events we are willing to lose in a relaunch. If it fired on the old site, it fires on the new one, verified.</p>
+        <p>Events lost that matter. Every event that still makes sense on the redesigned site moves across, verified. And the relaunch is where we optimize: tags and events that no longer earn their place get cleaned out.</p>
       </div>
       <div class="stat reveal">
         <div class="n">24<span>/7</span></div>
@@ -1111,7 +1187,7 @@ document.querySelectorAll('.timeline').forEach(tl => {
     bumps.push({ a: amp, d: 0.90 });
     const x = W * (0.72 + Math.random() * 0.2);
     const i = Math.min(pts.length - 1, Math.round((x + scroll) / STEP));
-    chips.push({ x, y: vToY(pts[i]) - 14, label, hot, a: 0, life: 0,
+    if (W > 640) chips.push({ x, y: vToY(pts[i]) - 14, label, hot, a: 0, life: 0,
                  vy: -(0.25 + Math.random() * 0.2) });
     if (hot && seq.phase === 'perch'){
       const s = { x: W - 2, a: 1.2, n: Math.round(800 + Math.random() * 900) };
@@ -1428,7 +1504,7 @@ document.querySelectorAll('.timeline').forEach(tl => {
     if (!a) return;
     const navStyle = a.closest('.navlinks') || a.classList.contains('wordmark')
       || a.classList.contains('pill') || a.classList.contains('more')
-      || a.classList.contains('model') || a.classList.contains('sigband') || a.closest('.trust');
+      || a.classList.contains('model') || a.classList.contains('sigband') || a.classList.contains('svc') || a.closest('.trust');
     if (!navStyle) return;
     burst(e.clientX, e.clientY);
     const href = a.getAttribute('href');

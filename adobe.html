@@ -589,6 +589,82 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
 .sigband:hover .go-arrow{animation:none;transform:translateX(16px)}
 @media (prefers-reduced-motion: reduce){.sigband .hl{background-size:100% 100%;color:var(--signal)}}
 
+/* ---------- sigband v2: rotating question ---------- */
+.rotwrap{display:inline-grid;text-align:left;vertical-align:top}
+.rotwrap span{grid-area:1/1;background:#fff;color:var(--signal);padding:2px 18px 8px;width:max-content;white-space:nowrap;opacity:0;transform:translateY(.5em);animation:sbRot 9.6s infinite}
+.rotwrap span:nth-child(2){animation-delay:3.2s}
+.rotwrap span:nth-child(3){animation-delay:6.4s}
+@keyframes sbRot{0%{opacity:0;transform:translateY(.55em)}4%{opacity:1;transform:translateY(0)}29%{opacity:1;transform:translateY(0)}33%{opacity:0;transform:translateY(-.55em)}100%{opacity:0;transform:translateY(-.55em)}}
+.sb-caret{display:inline-block;width:9px;height:15px;background:#fff;margin-left:8px;vertical-align:-2px;animation:sbBlink 1s steps(1) infinite}
+@keyframes sbBlink{50%{opacity:0}}
+@media (prefers-reduced-motion: reduce){.rotwrap span{animation:none!important;opacity:0}.rotwrap span:first-child{opacity:1;transform:none}}
+
+/* ---------- timeline node pop on reveal ---------- */
+.phase.in .node{animation:nodePop .55s ease .1s backwards}
+@keyframes nodePop{0%{transform:scale(.6)}55%{transform:scale(1.16)}100%{transform:scale(1)}}
+
+/* ---------- GA page: audit console + migration bridge vignettes ---------- */
+.big-anim{border:1px solid var(--line);background:#fff;margin:40px 0 8px;overflow:hidden}
+.big-anim svg{display:block;width:100%;height:150px}
+.big-anim text{font-family:var(--mono);letter-spacing:.06em}
+.ga-mag{animation:gaMag 5.5s ease-in-out infinite alternate}
+@keyframes gaMag{from{transform:translateX(0)}to{transform:translateX(660px)}}
+.ga-st{opacity:0;animation:gaSt 11s infinite}
+.ga-st.g2{animation-delay:1.8s}.ga-st.g3{animation-delay:3.7s}.ga-st.g4{animation-delay:5.5s}
+@keyframes gaSt{0%,14%{opacity:0}19%,94%{opacity:1}100%{opacity:0}}
+.ga-hop{animation:gaHop 6.6s ease-in-out infinite}
+.ga-hop.g2{animation-delay:2.2s}.ga-hop.g3{animation-delay:4.4s}
+@keyframes gaHop{0%{transform:translate(0,0);opacity:0}5%{opacity:1}25%{transform:translate(300px,-58px)}45%{transform:translate(600px,0);opacity:1}52%,100%{transform:translate(600px,0);opacity:0}}
+
+/* ---------- architecture diagrams: traveling pulses ---------- */
+.ga-d1{animation:gaD1 4.2s linear infinite}
+@keyframes gaD1{0%{transform:translate(0,0);opacity:0}3%{opacity:1}20%{transform:translate(100px,0);opacity:1}24%,100%{transform:translate(100px,0);opacity:0}}
+.ga-d2{animation:gaD2 4.2s linear infinite}
+@keyframes gaD2{0%,30%{transform:translate(0,0);opacity:0}33%{opacity:1}50%{transform:translate(100px,0);opacity:1}54%,100%{transform:translate(100px,0);opacity:0}}
+.ga-fan{animation:gaFan 4.2s linear infinite}
+@keyframes gaFan{0%,60%{transform:translate(0,0);opacity:0}63%{opacity:1}84%{transform:translate(100px,var(--dy));opacity:1}88%,100%{transform:translate(100px,var(--dy));opacity:0}}
+.ga-hit1{animation:gaHit1 4.2s linear infinite}
+@keyframes gaHit1{0%,19%{opacity:0}23%{opacity:.35}30%,100%{opacity:0}}
+.ga-hit2{animation:gaHit2 4.2s linear infinite}
+@keyframes gaHit2{0%,49%{opacity:0}53%{opacity:.3}60%,100%{opacity:0}}
+.ad-d{animation:adD 5s linear infinite}
+@keyframes adD{0%{transform:translate(0,0);opacity:0}4%{opacity:1}16%{transform:translate(60px,0);opacity:1}19%,100%{transform:translate(60px,0);opacity:0}}
+.ad-d.t2{animation-delay:1s}
+.ad-fan{animation:adFan 5s linear infinite}
+@keyframes adFan{0%,40%{transform:translate(0,0);opacity:0}44%{opacity:1}60%{transform:translate(78px,var(--dy));opacity:1}64%,100%{transform:translate(78px,var(--dy));opacity:0}}
+.ad-d3{animation:adD3 5s linear infinite}
+@keyframes adD3{0%,66%{transform:translate(0,0);opacity:0}70%{opacity:1}84%{transform:translate(56px,0);opacity:1}88%,100%{transform:translate(56px,0);opacity:0}}
+
+/* clickable thread cards */
+a.svc{display:block;color:inherit;text-decoration:none;cursor:pointer}
+a.svc .more{border-bottom:2px solid var(--signal);padding-bottom:3px}
+
+/* dispatch desk + contact photos: b&w, colour on hover */
+.contact .cphoto img{filter:grayscale(100%);transition:filter .4s}
+.contact:hover .cphoto img{filter:none}
+
+/* ---------- mobile & tablet pass ---------- */
+body{overflow-x:hidden}
+@media(max-width:700px){
+  .big-anim svg{height:86px}
+  .ph-anim svg{height:88px}
+  .svc-anim svg{height:74px}
+  .sigband .wrap{padding-top:56px;padding-bottom:56px}
+  .stat{padding:26px 22px}
+  .oa-col,.prin,.kpi-cell{padding:26px 22px}
+}
+@media(max-width:560px){
+  .sigband h2{font-size:clamp(23px,8vw,34px)}
+  .rotwrap span{padding:2px 10px 6px}
+  .contact h3{font-size:15px}
+}
+@media(max-width:460px){
+  .contact{grid-template-columns:1fr}
+  .contact .cphoto{width:100%;height:220px}
+  .contact .cphoto img{object-position:center 28%}
+  .kpi-head{padding:20px 22px}
+}
+
 </style>
 </head>
 <body>
@@ -629,6 +705,11 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
         <defs>
           <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f5bff"/></marker>
         </defs>
+        <circle class="ad-d" cx="180" cy="230" r="5" fill="#7da0ff"/>
+        <circle class="ad-d t2" cx="405" cy="230" r="5" fill="#7da0ff"/>
+        <circle class="ad-fan" style="--dy:-100px" cx="640" cy="205" r="4" fill="#7da0ff"/>
+        <circle class="ad-fan" style="--dy:65px" cx="640" cy="255" r="4" fill="#7da0ff"/>
+        <circle class="ad-d3" cx="892" cy="100" r="4" fill="#7da0ff"/>
         <!-- website -->
         <rect x="20" y="180" width="160" height="100" fill="none" stroke="#3a3a38" stroke-width="1.5"/>
         <text x="100" y="222" fill="#fff" font-family="Archivo,sans-serif" font-weight="800" font-size="16" text-anchor="middle">WEBSITE</text>
@@ -691,7 +772,7 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
       <article class="svc reveal">
         <span class="num">A1</span>
         <h3>Adobe Stack Audit</h3>
-        <p>Where is the implementation today, and what is it costing you? We review the existing Adobe Analytics / Launch / Target setup end to end and map the gap to a modern Web SDK architecture.</p>
+        <p>The same home-inspection rigour as our GA4 audit, pointed at the Adobe side: what is implemented, what is licensed but sleeping, and what is quietly broken. Most enterprises are paying for rooms they have never opened.</p>
         <ul>
           <li>AppMeasurement / Launch rules, eVars, props &amp; events review</li>
           <li>Processing rules, report suite &amp; data quality assessment</li>
@@ -701,7 +782,7 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
       <article class="svc reveal">
         <span class="num">A2</span>
         <h3>AEP Foundation Setup</h3>
-        <p>The platform groundwork everything else depends on. We design the data architecture in AEP before a single event is collected, so the data arrives structured, governed, and stitchable.</p>
+        <p>The plumbing before the furniture: schemas, datasets, datastreams, identities, and permissions. Get this right and everything downstream just clicks. Get it wrong and every team builds on sand.</p>
         <ul>
           <li>XDM schema design, ExperienceEvent &amp; Individual Profile field groups</li>
           <li>Identity namespaces, datasets &amp; data governance labels</li>
@@ -712,7 +793,7 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
         <span class="num">A3</span>
         <h3>Web SDK Implementation</h3>
         <span class="tag">Core build</span>
-        <p>One library replaces them all: the Web SDK (alloy.js) consolidates Analytics, Target, and Audience Manager calls into a single XDM stream through the Edge Network. We write the requirements and build it.</p>
+        <p>One doorbell for the whole house. Instead of five separate Adobe libraries each ringing on their own, alloy.js sends one clean XDM stream to the Edge, and every tool listens to that.</p>
         <ul>
           <li>Implementation specs, mapping the data layer to XDM, event by event</li>
           <li>Tags (Launch) property build: data elements, rules, sendEvent design</li>
@@ -722,7 +803,7 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
       <article class="svc reveal">
         <span class="num">A4</span>
         <h3>Analytics → CJA Migration</h3>
-        <p>Moving reporting from Adobe Analytics report suites to Customer Journey Analytics, translating the metrics and dimensions teams rely on into CJA's connection / data view model without losing history of meaning.</p>
+        <p>Moving out of the old apartment without losing the photo albums: years of Adobe Analytics history mapped, translated to XDM, and preserved so your trend lines survive the move.</p>
         <ul>
           <li>Report suite → data view mapping (metrics, dimensions, segments)</li>
           <li>Session &amp; attribution settings recreated deliberately, not by default</li>
@@ -732,7 +813,7 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
       <article class="svc reveal">
         <span class="num">A5</span>
         <h3>CJA Dashboards &amp; Reporting</h3>
-        <p>Connections, data views, and Analysis Workspace dashboards that people actually use, every channel and data source stitched into one view of the customer journey.</p>
+        <p>The workbench where data becomes decisions: dashboards that join web, app, call center, and offline into one view of the same customer, instead of four tools telling four stories.</p>
         <ul>
           <li>CJA connections across web, app, CRM &amp; offline datasets</li>
           <li>Curated data views per team, clean components, clear names</li>
@@ -742,7 +823,7 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
       <article class="svc reveal">
         <span class="num">A6</span>
         <h3>Personalization, RT-CDP + AJO</h3>
-        <p>The payoff: turning stitched profiles into experiences. We build Real-Time CDP audiences and activate them through Adobe Journey Optimizer, on the website, in email, everywhere the journey goes.</p>
+        <p>A guest list that updates while the party is happening. Profiles qualify for audiences in real time, and AJO changes what the site says mid-visit, not next Tuesday.</p>
         <ul>
           <li>Real-Time CDP audience strategy &amp; streaming segmentation</li>
           <li>AJO journey design, triggers &amp; decisioning</li>
@@ -1270,7 +1351,7 @@ document.querySelectorAll('.timeline').forEach(tl => {
     bumps.push({ a: amp, d: 0.90 });
     const x = W * (0.72 + Math.random() * 0.2);
     const i = Math.min(pts.length - 1, Math.round((x + scroll) / STEP));
-    chips.push({ x, y: vToY(pts[i]) - 14, label, hot, a: 0, life: 0,
+    if (W > 640) chips.push({ x, y: vToY(pts[i]) - 14, label, hot, a: 0, life: 0,
                  vy: -(0.25 + Math.random() * 0.2) });
     if (hot && seq.phase === 'perch'){
       const s = { x: W - 2, a: 1.2, n: Math.round(800 + Math.random() * 900) };
@@ -1587,7 +1668,7 @@ document.querySelectorAll('.timeline').forEach(tl => {
     if (!a) return;
     const navStyle = a.closest('.navlinks') || a.classList.contains('wordmark')
       || a.classList.contains('pill') || a.classList.contains('more')
-      || a.classList.contains('model') || a.classList.contains('sigband') || a.closest('.trust');
+      || a.classList.contains('model') || a.classList.contains('sigband') || a.classList.contains('svc') || a.closest('.trust');
     if (!navStyle) return;
     burst(e.clientX, e.clientY);
     const href = a.getAttribute('href');

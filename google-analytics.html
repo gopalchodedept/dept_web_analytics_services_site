@@ -589,6 +589,82 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
 .sigband:hover .go-arrow{animation:none;transform:translateX(16px)}
 @media (prefers-reduced-motion: reduce){.sigband .hl{background-size:100% 100%;color:var(--signal)}}
 
+/* ---------- sigband v2: rotating question ---------- */
+.rotwrap{display:inline-grid;text-align:left;vertical-align:top}
+.rotwrap span{grid-area:1/1;background:#fff;color:var(--signal);padding:2px 18px 8px;width:max-content;white-space:nowrap;opacity:0;transform:translateY(.5em);animation:sbRot 9.6s infinite}
+.rotwrap span:nth-child(2){animation-delay:3.2s}
+.rotwrap span:nth-child(3){animation-delay:6.4s}
+@keyframes sbRot{0%{opacity:0;transform:translateY(.55em)}4%{opacity:1;transform:translateY(0)}29%{opacity:1;transform:translateY(0)}33%{opacity:0;transform:translateY(-.55em)}100%{opacity:0;transform:translateY(-.55em)}}
+.sb-caret{display:inline-block;width:9px;height:15px;background:#fff;margin-left:8px;vertical-align:-2px;animation:sbBlink 1s steps(1) infinite}
+@keyframes sbBlink{50%{opacity:0}}
+@media (prefers-reduced-motion: reduce){.rotwrap span{animation:none!important;opacity:0}.rotwrap span:first-child{opacity:1;transform:none}}
+
+/* ---------- timeline node pop on reveal ---------- */
+.phase.in .node{animation:nodePop .55s ease .1s backwards}
+@keyframes nodePop{0%{transform:scale(.6)}55%{transform:scale(1.16)}100%{transform:scale(1)}}
+
+/* ---------- GA page: audit console + migration bridge vignettes ---------- */
+.big-anim{border:1px solid var(--line);background:#fff;margin:40px 0 8px;overflow:hidden}
+.big-anim svg{display:block;width:100%;height:150px}
+.big-anim text{font-family:var(--mono);letter-spacing:.06em}
+.ga-mag{animation:gaMag 5.5s ease-in-out infinite alternate}
+@keyframes gaMag{from{transform:translateX(0)}to{transform:translateX(660px)}}
+.ga-st{opacity:0;animation:gaSt 11s infinite}
+.ga-st.g2{animation-delay:1.8s}.ga-st.g3{animation-delay:3.7s}.ga-st.g4{animation-delay:5.5s}
+@keyframes gaSt{0%,14%{opacity:0}19%,94%{opacity:1}100%{opacity:0}}
+.ga-hop{animation:gaHop 6.6s ease-in-out infinite}
+.ga-hop.g2{animation-delay:2.2s}.ga-hop.g3{animation-delay:4.4s}
+@keyframes gaHop{0%{transform:translate(0,0);opacity:0}5%{opacity:1}25%{transform:translate(300px,-58px)}45%{transform:translate(600px,0);opacity:1}52%,100%{transform:translate(600px,0);opacity:0}}
+
+/* ---------- architecture diagrams: traveling pulses ---------- */
+.ga-d1{animation:gaD1 4.2s linear infinite}
+@keyframes gaD1{0%{transform:translate(0,0);opacity:0}3%{opacity:1}20%{transform:translate(100px,0);opacity:1}24%,100%{transform:translate(100px,0);opacity:0}}
+.ga-d2{animation:gaD2 4.2s linear infinite}
+@keyframes gaD2{0%,30%{transform:translate(0,0);opacity:0}33%{opacity:1}50%{transform:translate(100px,0);opacity:1}54%,100%{transform:translate(100px,0);opacity:0}}
+.ga-fan{animation:gaFan 4.2s linear infinite}
+@keyframes gaFan{0%,60%{transform:translate(0,0);opacity:0}63%{opacity:1}84%{transform:translate(100px,var(--dy));opacity:1}88%,100%{transform:translate(100px,var(--dy));opacity:0}}
+.ga-hit1{animation:gaHit1 4.2s linear infinite}
+@keyframes gaHit1{0%,19%{opacity:0}23%{opacity:.35}30%,100%{opacity:0}}
+.ga-hit2{animation:gaHit2 4.2s linear infinite}
+@keyframes gaHit2{0%,49%{opacity:0}53%{opacity:.3}60%,100%{opacity:0}}
+.ad-d{animation:adD 5s linear infinite}
+@keyframes adD{0%{transform:translate(0,0);opacity:0}4%{opacity:1}16%{transform:translate(60px,0);opacity:1}19%,100%{transform:translate(60px,0);opacity:0}}
+.ad-d.t2{animation-delay:1s}
+.ad-fan{animation:adFan 5s linear infinite}
+@keyframes adFan{0%,40%{transform:translate(0,0);opacity:0}44%{opacity:1}60%{transform:translate(78px,var(--dy));opacity:1}64%,100%{transform:translate(78px,var(--dy));opacity:0}}
+.ad-d3{animation:adD3 5s linear infinite}
+@keyframes adD3{0%,66%{transform:translate(0,0);opacity:0}70%{opacity:1}84%{transform:translate(56px,0);opacity:1}88%,100%{transform:translate(56px,0);opacity:0}}
+
+/* clickable thread cards */
+a.svc{display:block;color:inherit;text-decoration:none;cursor:pointer}
+a.svc .more{border-bottom:2px solid var(--signal);padding-bottom:3px}
+
+/* dispatch desk + contact photos: b&w, colour on hover */
+.contact .cphoto img{filter:grayscale(100%);transition:filter .4s}
+.contact:hover .cphoto img{filter:none}
+
+/* ---------- mobile & tablet pass ---------- */
+body{overflow-x:hidden}
+@media(max-width:700px){
+  .big-anim svg{height:86px}
+  .ph-anim svg{height:88px}
+  .svc-anim svg{height:74px}
+  .sigband .wrap{padding-top:56px;padding-bottom:56px}
+  .stat{padding:26px 22px}
+  .oa-col,.prin,.kpi-cell{padding:26px 22px}
+}
+@media(max-width:560px){
+  .sigband h2{font-size:clamp(23px,8vw,34px)}
+  .rotwrap span{padding:2px 10px 6px}
+  .contact h3{font-size:15px}
+}
+@media(max-width:460px){
+  .contact{grid-template-columns:1fr}
+  .contact .cphoto{width:100%;height:220px}
+  .contact .cphoto img{object-position:center 28%}
+  .kpi-head{padding:20px 22px}
+}
+
 </style>
 </head>
 <body>
@@ -620,7 +696,18 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
     <div class="reveal">
       <div class="eyebrow">Service deep-dive</div>
       <h2 class="display">The GA4 Audit</h2>
-      <p class="lede">An audit answers one question: <strong>can you trust your data?</strong> We go through the GA4 property, the GTM container, and every third-party pixel line by line. It is also always the first phase of a migration, you cannot move what you have not mapped.</p>
+      <p class="lede">An audit answers one question: <strong>can you trust your data?</strong> We go through the GA4 property, the GTM container, and every third-party pixel line by line. It is also always the first phase of a migration, you cannot move what you have not mapped. Think of it as a home inspection for your measurement: we don't renovate anything yet, we find every crack, leak, and dodgy wire, and tell you which ones actually matter.</p>
+      <div class="big-anim" aria-hidden="true"><svg viewBox="0 0 1080 150" preserveAspectRatio="xMidYMid meet">
+        <rect x="40" y="18" width="760" height="22" fill="#f4f4f2"/><text x="54" y="33" font-size="12" fill="#0a0a0a">GA4 · purchase event</text>
+        <rect x="40" y="50" width="760" height="22" fill="#f4f4f2"/><text x="54" y="65" font-size="12" fill="#0a0a0a">GTM · add_to_cart trigger</text>
+        <rect x="40" y="82" width="760" height="22" fill="#f4f4f2"/><text x="54" y="97" font-size="12" fill="#0a0a0a">Meta pixel · PageView</text>
+        <rect x="40" y="114" width="760" height="22" fill="#f4f4f2"/><text x="54" y="129" font-size="12" fill="#0a0a0a">Floodlight · conversion tag</text>
+        <g class="ga-st"><circle cx="830" cy="29" r="9" fill="#2f5bff"/><path d="M825.5 29 l3.4 3.4 l5.6 -6.8" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/><text x="850" y="34" font-size="11" fill="#2f5bff">healthy</text></g>
+        <g class="ga-st g2"><circle cx="830" cy="61" r="9" fill="#0a0a0a"/><path d="M826 57 l8 8 M834 57 l-8 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/><text x="850" y="66" font-size="11" fill="#0a0a0a">double-firing</text></g>
+        <g class="ga-st g3"><circle cx="830" cy="93" r="9" fill="#2f5bff"/><path d="M825.5 93 l3.4 3.4 l5.6 -6.8" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/><text x="850" y="98" font-size="11" fill="#2f5bff">healthy</text></g>
+        <g class="ga-st g4"><circle cx="830" cy="125" r="9" fill="#0a0a0a"/><path d="M826 121 l8 8 M834 121 l-8 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/><text x="850" y="130" font-size="11" fill="#0a0a0a">missing on checkout</text></g>
+        <g class="ga-mag"><circle cx="110" cy="72" r="24" fill="none" stroke="#0a0a0a" stroke-width="3"/><line x1="127" y1="89" x2="146" y2="108" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/></g>
+      </svg></div>
     </div>
     <div class="audit-cols reveal">
       <div class="audit-col">
@@ -655,7 +742,7 @@ header.hero > .wrap{padding-bottom:clamp(230px,30vh,340px)}
     <div class="reveal">
       <div class="eyebrow">The foundation</div>
       <h2 class="display">The Data Layer<br>Is Everything.</h2>
-      <p class="lede">Every tag we build depends on it. Without a data layer, there is no reliable GA4, no accurate pixels, no trustworthy reporting. This is the single most important concept on this page.</p>
+      <p class="lede">Think of the data layer as the site's narrator. The site announces what just happened ("someone added shoes to the cart, $49"), GTM translates that announcement for every tool that needs it, and GA4 files the story. No narrator, no story: tags end up guessing by scraping whatever is on the screen. Every tag we build depends on this one structure.</p>
     </div>
     <div class="dl-grid">
       <div class="dl-copy reveal">
@@ -705,6 +792,14 @@ dataLayer.push({
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f5bff"/></marker>
         </defs>
+        <circle class="ga-d1" cx="220" cy="165" r="5" fill="#7da0ff"/>
+        <circle class="ga-d2" cx="545" cy="165" r="5" fill="#7da0ff"/>
+        <circle class="ga-fan" style="--dy:-90px" cx="830" cy="135" r="4" fill="#7da0ff"/>
+        <circle class="ga-fan" style="--dy:-40px" cx="830" cy="155" r="4" fill="#7da0ff"/>
+        <circle class="ga-fan" style="--dy:10px" cx="830" cy="175" r="4" fill="#7da0ff"/>
+        <circle class="ga-fan" style="--dy:60px" cx="830" cy="195" r="4" fill="#7da0ff"/>
+        <rect class="ga-hit1" x="325" y="90" width="220" height="150" fill="#fff" opacity="0"/>
+        <rect class="ga-hit2" x="650" y="105" width="180" height="120" fill="#fff" opacity="0"/>
         <!-- website -->
         <rect x="20" y="105" width="200" height="120" fill="none" stroke="#3a3a38" stroke-width="1.5"/>
         <text x="120" y="145" fill="#fff" font-family="Archivo,sans-serif" font-weight="800" font-size="17" text-anchor="middle">WEBSITE</text>
@@ -749,7 +844,18 @@ dataLayer.push({
     <div class="phases-head reveal">
       <div class="eyebrow">Flagship engagement</div>
       <h2 class="display">Website Migration</h2>
-      <p class="lede">A new CMS. A redesign. A replatform. Whatever form it takes, the moment the new site goes live, <strong>every piece of tracking on the old site is at risk</strong>, and most of it will simply stop working. Our migration engagement makes sure nothing is lost and the new site launches with measurement that's better than what it replaced. Nine phases, in order, every time.</p>
+      <p class="lede">A new CMS. A redesign. A replatform. Whatever form it takes, the moment the new site goes live, <strong>every piece of tracking on the old site is at risk</strong>, and most of it will simply stop working. Our migration engagement makes sure nothing is lost and the new site launches with measurement that's better than what it replaced. It is a house move for your measurement: every tag is a box, the data layer spec is the packing list, and QA is us checking every box arrived unbroken. Nine phases, in order, every time.</p>
+      <div class="big-anim" aria-hidden="true"><svg viewBox="0 0 1080 150" preserveAspectRatio="xMidYMid meet">
+        <path d="M240 52 C 420 120, 660 120, 840 52" fill="none" stroke="#2f5bff" stroke-width="1.6" stroke-dasharray="6 7" class="flowdash"/>
+        <rect x="80" y="36" width="160" height="76" fill="#f4f4f2" stroke="#8a8a86" stroke-width="1.2"/>
+        <text x="160" y="80" font-size="12" fill="#8a8a86" text-anchor="middle">old site</text>
+        <rect x="840" y="36" width="160" height="76" fill="#fff" stroke="#2f5bff" stroke-width="1.6"/>
+        <text x="920" y="80" font-size="12" fill="#2f5bff" text-anchor="middle">new site</text>
+        <g class="ga-hop"><rect x="222" y="52" width="34" height="24" fill="#0a0a0a"/><text x="239" y="68" font-size="10" fill="#fff" text-anchor="middle">GA4</text></g>
+        <g class="ga-hop g2"><rect x="222" y="52" width="34" height="24" fill="#2f5bff"/><text x="239" y="68" font-size="10" fill="#fff" text-anchor="middle">GTM</text></g>
+        <g class="ga-hop g3"><rect x="222" y="52" width="34" height="24" fill="#0a0a0a"/><text x="239" y="68" font-size="10" fill="#fff" text-anchor="middle">px</text></g>
+        <text x="540" y="30" font-size="11" fill="#8a8a86" text-anchor="middle">every box on the manifest, every box checked on arrival</text>
+      </svg></div>
     </div>
 
     <div class="timeline">
@@ -1178,7 +1284,7 @@ document.querySelectorAll('.timeline').forEach(tl => {
     bumps.push({ a: amp, d: 0.90 });
     const x = W * (0.72 + Math.random() * 0.2);
     const i = Math.min(pts.length - 1, Math.round((x + scroll) / STEP));
-    chips.push({ x, y: vToY(pts[i]) - 14, label, hot, a: 0, life: 0,
+    if (W > 640) chips.push({ x, y: vToY(pts[i]) - 14, label, hot, a: 0, life: 0,
                  vy: -(0.25 + Math.random() * 0.2) });
     if (hot && seq.phase === 'perch'){
       const s = { x: W - 2, a: 1.2, n: Math.round(800 + Math.random() * 900) };
@@ -1495,7 +1601,7 @@ document.querySelectorAll('.timeline').forEach(tl => {
     if (!a) return;
     const navStyle = a.closest('.navlinks') || a.classList.contains('wordmark')
       || a.classList.contains('pill') || a.classList.contains('more')
-      || a.classList.contains('model') || a.classList.contains('sigband') || a.closest('.trust');
+      || a.classList.contains('model') || a.classList.contains('sigband') || a.classList.contains('svc') || a.closest('.trust');
     if (!navStyle) return;
     burst(e.clientX, e.clientY);
     const href = a.getAttribute('href');
