@@ -640,8 +640,8 @@ a.svc{display:block;color:inherit;text-decoration:none;cursor:pointer}
 a.svc .more{border-bottom:2px solid var(--signal);padding-bottom:3px}
 
 /* dispatch desk + contact photos: b&w, colour on hover */
-.contact .cphoto img{filter:grayscale(100%);transition:filter .4s}
-.contact:hover .cphoto img{filter:none}
+.contact .cphoto img,.contact.on-dark .cphoto img{filter:grayscale(100%);transition:filter .4s}
+.contact:hover .cphoto img,.contact.on-dark:hover .cphoto img{filter:none}
 
 /* ---------- mobile & tablet pass ---------- */
 body{overflow-x:hidden}

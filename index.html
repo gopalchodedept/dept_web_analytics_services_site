@@ -640,8 +640,8 @@ a.svc{display:block;color:inherit;text-decoration:none;cursor:pointer}
 a.svc .more{border-bottom:2px solid var(--signal);padding-bottom:3px}
 
 /* dispatch desk + contact photos: b&w, colour on hover */
-.contact .cphoto img{filter:grayscale(100%);transition:filter .4s}
-.contact:hover .cphoto img{filter:none}
+.contact .cphoto img,.contact.on-dark .cphoto img{filter:grayscale(100%);transition:filter .4s}
+.contact:hover .cphoto img,.contact.on-dark:hover .cphoto img{filter:none}
 
 /* ---------- mobile & tablet pass ---------- */
 body{overflow-x:hidden}
@@ -959,7 +959,7 @@ body{overflow-x:hidden}
 <div class="trust reveal">
   <div class="wrap"><div class="row">
     <span class="lbl">Trusted by →</span>
-    <a href="about.html#clients">Graybar</a><a href="about.html#clients">Shoe Carnival</a><a href="about.html#clients">Joann</a><a href="about.html#clients">PwC</a><a href="about.html#clients">Frette</a><a href="about.html#clients">Arcadis</a><a href="about.html#clients">+ more</a>
+    <a href="about.html#clients">PwC</a><a href="about.html#clients">Arcadis</a><a href="about.html#clients">Helzberg Diamonds</a><a href="about.html#clients">Frette</a><a href="about.html#clients">Peter Thomas Roth</a><a href="about.html#clients">+ more</a>
   </div></div>
 </div>
 <footer>

@@ -640,8 +640,8 @@ a.svc{display:block;color:inherit;text-decoration:none;cursor:pointer}
 a.svc .more{border-bottom:2px solid var(--signal);padding-bottom:3px}
 
 /* dispatch desk + contact photos: b&w, colour on hover */
-.contact .cphoto img{filter:grayscale(100%);transition:filter .4s}
-.contact:hover .cphoto img{filter:none}
+.contact .cphoto img,.contact.on-dark .cphoto img{filter:grayscale(100%);transition:filter .4s}
+.contact:hover .cphoto img,.contact.on-dark:hover .cphoto img{filter:none}
 
 /* ---------- mobile & tablet pass ---------- */
 body{overflow-x:hidden}
@@ -947,7 +947,15 @@ body{overflow-x:hidden}
   <text x="392" y="96" font-size="9.5" fill="#8a8a86">roles → real names</text>
 </svg></div>
         <p>Once the client approves, we work with the resource managers, Sari for data work and Sari plus Nico for Adobe work, to lock the right people for the project: the roles from the SOW, matched to real names, confirmed against the start date.</p>
-        <div class="out"><b>Output →</b> A staffed team and a confirmed start date</div>
+        <div class="detail">
+          <h5>The formal step</h5>
+          <ul>
+            <li>Submit a resourcing ticket for the project and get it approved</li>
+            <li>The ticket is what turns the earlier heads-up into an actual staffing request</li>
+            <li>First time doing this? Work through it with Sari or Nico, they'll walk you through the ticket and the approval</li>
+          </ul>
+        </div>
+        <div class="out"><b>Output →</b> An approved resourcing ticket, a staffed team, and a confirmed start date</div>
       </article>
 
       <article class="phase reveal">
