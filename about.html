@@ -732,6 +732,28 @@ a.post:hover{transform:translateY(-5px);box-shadow:0 16px 32px -20px rgba(10,10,
 /* nav: 8 items fit */
 @media(max-width:1240px) and (min-width:881px){.navlinks{gap:20px}.navlinks a{font-size:12px;letter-spacing:.06em}}
 
+/* ---------- article tables + enablement bits ---------- */
+.art table{width:100%;border-collapse:collapse;margin:26px 0;font-size:14.5px}
+.art th{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mid);text-align:left;padding:10px 14px 10px 0;border-bottom:2px solid var(--ink)}
+.art td{padding:13px 14px 13px 0;border-bottom:1px solid var(--line);color:#2c2c2a;line-height:1.55;vertical-align:top}
+.art td strong{color:var(--ink)}
+.trackchip{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--signal);padding:5px 11px;margin-bottom:14px}
+.trackchip.dark{background:var(--ink)}
+/* onboarding pipeline */
+.en-pipe{animation:enPipe 7s linear infinite}
+@keyframes enPipe{0%{transform:translateX(0);opacity:0}4%{opacity:1}94%{transform:translateX(660px);opacity:1}100%{transform:translateX(660px);opacity:0}}
+.en-node{transform-origin:center;transform-box:fill-box;animation:enNode 7s infinite}
+@keyframes enNode{0%,8%{transform:scale(1);fill:#fff}12%{transform:scale(1.35);fill:#2f5bff}18%,100%{transform:scale(1);fill:#fff}}
+/* the training loop */
+.en-orbit{transform-origin:420px 130px;animation:enOrbit 7s linear infinite}
+@keyframes enOrbit{to{transform:rotate(360deg)}}
+.en-loopnode{transform-origin:center;transform-box:fill-box;animation:enLoop 7s infinite}
+@keyframes enLoop{0%,4%{transform:scale(1)}9%{transform:scale(1.14)}15%,100%{transform:scale(1)}}
+/* hours bars */
+.en-bar{transform-origin:left center;animation:enBar 5s ease-out infinite}
+.en-bar.b2{animation-delay:.3s}.en-bar.b3{animation-delay:.6s}
+@keyframes enBar{0%,6%{transform:scaleX(0)}44%,92%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:0}}
+
 </style>
 </head>
 <body>
@@ -864,7 +886,38 @@ a.post:hover{transform:translateY(-5px);box-shadow:0 16px 32px -20px rgba(10,10,
   </div>
 </section>
 
-<section id="clients">
+<section>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">How this team is different</div>
+      <h2 class="display">The Entry<br>Door</h2>
+      <p class="lede">Plenty of teams at DEPT work with data. This one owns the web analytics layer: the setup and tracking that decides whether every downstream dataset can be trusted. We work hand in hand with the other data teams, and for most clients, especially website redesign projects, we're the first data team in the building.</p>
+      <p class="lede" style="margin-top:18px">Engagements start with web analytics. Once the measurement layer is solid, the work grows: into data warehousing, into data science, into whatever the clean data can support next. Tracking first; everything else follows.</p>
+    </div>
+    <div class="anim-fig reveal" style="max-width:840px" aria-hidden="true"><svg viewBox="0 0 840 240" preserveAspectRatio="xMidYMid meet">
+      <rect x="60" y="86" width="190" height="66" fill="#2f5bff"/>
+      <text x="155" y="114" font-size="13" fill="#fff" text-anchor="middle" font-weight="700">Web Analytics</text>
+      <text x="155" y="132" font-size="10.5" fill="#fff" text-anchor="middle">setup · tracking · QA</text>
+      <text x="155" y="176" font-size="10" fill="#8a8a86" text-anchor="middle">the entry door</text>
+      <line x1="250" y1="105" x2="400" y2="62" stroke="#8a8a86" stroke-width="1" opacity=".45"/>
+      <line x1="250" y1="119" x2="400" y2="119" stroke="#8a8a86" stroke-width="1" opacity=".45"/>
+      <line x1="250" y1="133" x2="400" y2="176" stroke="#8a8a86" stroke-width="1" opacity=".45"/>
+      <circle class="ar-dot" style="--tx:150px;--ty:-43px" cx="250" cy="105" r="5" fill="#2f5bff"/>
+      <circle class="ar-dot d2" style="--tx:150px;--ty:0px" cx="250" cy="119" r="5" fill="#2f5bff"/>
+      <circle class="ar-dot d3" style="--tx:150px;--ty:43px" cx="250" cy="133" r="5" fill="#2f5bff"/>
+      <rect x="400" y="38" width="200" height="46" fill="#fff" stroke="#0a0a0a" stroke-width="1.5"/>
+      <text x="500" y="66" font-size="12" fill="#0a0a0a" text-anchor="middle">Data Warehousing</text>
+      <rect x="400" y="96" width="200" height="46" fill="#fff" stroke="#0a0a0a" stroke-width="1.5"/>
+      <text x="500" y="124" font-size="12" fill="#0a0a0a" text-anchor="middle">Data Science</text>
+      <rect x="400" y="154" width="200" height="46" fill="#fff" stroke="#0a0a0a" stroke-width="1.5" stroke-dasharray="5 5"/>
+      <text x="500" y="182" font-size="12" fill="#8a8a86" text-anchor="middle">Whatever comes next</text>
+      <text x="630" y="122" font-size="11" fill="#8a8a86">← clean tracking</text>
+      <text x="630" y="140" font-size="11" fill="#8a8a86">makes these possible</text>
+    </svg></div>
+  </div>
+</section>
+
+<section class="grey" id="clients">
   <div class="wrap">
     <div class="reveal">
       <div class="eyebrow">The work so far</div>

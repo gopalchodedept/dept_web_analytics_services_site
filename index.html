@@ -732,6 +732,28 @@ a.post:hover{transform:translateY(-5px);box-shadow:0 16px 32px -20px rgba(10,10,
 /* nav: 8 items fit */
 @media(max-width:1240px) and (min-width:881px){.navlinks{gap:20px}.navlinks a{font-size:12px;letter-spacing:.06em}}
 
+/* ---------- article tables + enablement bits ---------- */
+.art table{width:100%;border-collapse:collapse;margin:26px 0;font-size:14.5px}
+.art th{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mid);text-align:left;padding:10px 14px 10px 0;border-bottom:2px solid var(--ink)}
+.art td{padding:13px 14px 13px 0;border-bottom:1px solid var(--line);color:#2c2c2a;line-height:1.55;vertical-align:top}
+.art td strong{color:var(--ink)}
+.trackchip{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--signal);padding:5px 11px;margin-bottom:14px}
+.trackchip.dark{background:var(--ink)}
+/* onboarding pipeline */
+.en-pipe{animation:enPipe 7s linear infinite}
+@keyframes enPipe{0%{transform:translateX(0);opacity:0}4%{opacity:1}94%{transform:translateX(660px);opacity:1}100%{transform:translateX(660px);opacity:0}}
+.en-node{transform-origin:center;transform-box:fill-box;animation:enNode 7s infinite}
+@keyframes enNode{0%,8%{transform:scale(1);fill:#fff}12%{transform:scale(1.35);fill:#2f5bff}18%,100%{transform:scale(1);fill:#fff}}
+/* the training loop */
+.en-orbit{transform-origin:420px 130px;animation:enOrbit 7s linear infinite}
+@keyframes enOrbit{to{transform:rotate(360deg)}}
+.en-loopnode{transform-origin:center;transform-box:fill-box;animation:enLoop 7s infinite}
+@keyframes enLoop{0%,4%{transform:scale(1)}9%{transform:scale(1.14)}15%,100%{transform:scale(1)}}
+/* hours bars */
+.en-bar{transform-origin:left center;animation:enBar 5s ease-out infinite}
+.en-bar.b2{animation-delay:.3s}.en-bar.b3{animation-delay:.6s}
+@keyframes enBar{0%,6%{transform:scaleX(0)}44%,92%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:0}}
+
 </style>
 </head>
 <body>
@@ -873,7 +895,7 @@ a.post:hover{transform:translateY(-5px);box-shadow:0 16px 32px -20px rgba(10,10,
   <g class="sa-hop h3"><rect x="118" y="44" width="16" height="16" fill="#0a0a0a"/><text x="126" y="55" font-size="7.5" fill="#fff" text-anchor="middle">dL</text></g>
 </svg></div>
         <span class="tag">Flagship</span>
-        <p>Our flagship. When a site replatforms, tracking dies by default. We move the entire measurement layer, GA4, GTM, the data layer, every pixel, and prove that nothing was lost on the way across.</p>
+        <p>Our flagship. When a site replatforms, tracking dies by default. We move the entire measurement layer and prove nothing was lost on the way across. Loop us in during discovery: a measurement strategy is a non-negotiable part of every redesign.</p>
         <ul>
           <li>Old-site audit &amp; tag inventory</li>
           <li>Data layer specs, rebuild &amp; QA</li>

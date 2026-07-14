@@ -732,6 +732,28 @@ a.post:hover{transform:translateY(-5px);box-shadow:0 16px 32px -20px rgba(10,10,
 /* nav: 8 items fit */
 @media(max-width:1240px) and (min-width:881px){.navlinks{gap:20px}.navlinks a{font-size:12px;letter-spacing:.06em}}
 
+/* ---------- article tables + enablement bits ---------- */
+.art table{width:100%;border-collapse:collapse;margin:26px 0;font-size:14.5px}
+.art th{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mid);text-align:left;padding:10px 14px 10px 0;border-bottom:2px solid var(--ink)}
+.art td{padding:13px 14px 13px 0;border-bottom:1px solid var(--line);color:#2c2c2a;line-height:1.55;vertical-align:top}
+.art td strong{color:var(--ink)}
+.trackchip{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--signal);padding:5px 11px;margin-bottom:14px}
+.trackchip.dark{background:var(--ink)}
+/* onboarding pipeline */
+.en-pipe{animation:enPipe 7s linear infinite}
+@keyframes enPipe{0%{transform:translateX(0);opacity:0}4%{opacity:1}94%{transform:translateX(660px);opacity:1}100%{transform:translateX(660px);opacity:0}}
+.en-node{transform-origin:center;transform-box:fill-box;animation:enNode 7s infinite}
+@keyframes enNode{0%,8%{transform:scale(1);fill:#fff}12%{transform:scale(1.35);fill:#2f5bff}18%,100%{transform:scale(1);fill:#fff}}
+/* the training loop */
+.en-orbit{transform-origin:420px 130px;animation:enOrbit 7s linear infinite}
+@keyframes enOrbit{to{transform:rotate(360deg)}}
+.en-loopnode{transform-origin:center;transform-box:fill-box;animation:enLoop 7s infinite}
+@keyframes enLoop{0%,4%{transform:scale(1)}9%{transform:scale(1.14)}15%,100%{transform:scale(1)}}
+/* hours bars */
+.en-bar{transform-origin:left center;animation:enBar 5s ease-out infinite}
+.en-bar.b2{animation-delay:.3s}.en-bar.b3{animation-delay:.6s}
+@keyframes enBar{0%,6%{transform:scaleX(0)}44%,92%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:0}}
+
 </style>
 </head>
 <body>
@@ -755,7 +777,7 @@ a.post:hover{transform:translateY(-5px);box-shadow:0 16px 32px -20px rgba(10,10,
   <div class="wrap">
     <div class="eyebrow">Practice, strategy</div>
     <h1>Measurement<br><span class="outline">Framework.</span></h1>
-    <p class="lede">Before a single tag is written, someone has to decide what the business is actually trying to prove. A measurement framework identifies the KPIs that matter, defines exactly how each one is calculated, and assigns every metric an owner, so reporting starts with answers instead of exports.</p>
+    <p class="lede">Before a single tag is written, someone has to decide what the business is actually trying to prove. A measurement framework identifies the KPIs that matter, defines exactly how each one is calculated, and assigns every metric an owner, so reporting starts with answers instead of exports. It belongs in <strong>every project we take on</strong>, and for website redesigns it is non-negotiable: loop us in during discovery, and the strategy ships alongside the designs.</p>
   </div>
 </header>
 
@@ -871,6 +893,21 @@ a.post:hover{transform:translateY(-5px);box-shadow:0 16px 32px -20px rgba(10,10,
 <section class="grey">
   <div class="wrap">
     <div class="reveal">
+      <div class="eyebrow">What it takes</div>
+      <h2 class="display">Timeline &amp; Budget</h2>
+      <p class="lede">A measurement strategy is a scoped, predictable engagement, not an open-ended workshop series. Plan for it in every project; for redesigns, plan for it in discovery.</p>
+    </div>
+    <div class="stat-grid" style="margin-top:50px">
+      <div class="stat reveal"><span class="n">3-6<span> wks</span></span><p><strong>Start to finish.</strong> Discovery workshops, KPI architecture, and the implementation spreadsheet. Scope drives where in the range it lands.</p></div>
+      <div class="stat reveal"><span class="n">50<span>%</span></span><p><strong>Capacity required.</strong> Half the week of a Principal, Data Analytics, roughly 20 hours per week, so the work runs alongside a live project.</p></div>
+      <div class="stat reveal"><span class="n">$300<span>/hr</span></span><p><strong>The planning rate</strong> for the Principal, Data Analytics role leading the engagement.</p></div>
+      <div class="stat reveal"><span class="n">$18<span>-36k</span></span><p><strong>Typical budget.</strong> 3 weeks x 20 hours x $300 lands at $18,000; a 6-week scope lands at $36,000. More business units, workshops, or platforms push toward the top.</p></div>
+    </div>
+    <div class="rule-band reveal">
+      <h4>Non-negotiable for redesigns</h4>
+      <p>Every website redesign project includes a measurement strategy, and the web analytics team is looped in during discovery, not after the designs are locked. Rebuilding a site without deciding what it must prove is how relaunches lose a year of data.</p>
+    </div>
+    <div class="reveal" style="margin-top:80px">
       <div class="eyebrow">What it looks like in practice</div>
       <h2 class="display">A Worked Example</h2>
       <p class="lede">One KPI from a brand-authority framework, documented to the standard above. Every KPI we ship gets this treatment.</p>

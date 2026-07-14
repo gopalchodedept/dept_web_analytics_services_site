@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FAQ | DEPT® Web Analytics</title>
+<title>Zero To Adobe Certified | The Web Log | DEPT® Web Analytics</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
@@ -767,72 +767,242 @@ a.post:hover{transform:translateY(-5px);box-shadow:0 16px 32px -20px rgba(10,10,
       <li><a href="adobe.html">Adobe</a></li>
       <li><a href="measurement.html">Measurement</a></li>
       <li><a href="growth.html">Growth</a></li>
-      <li><a href="weblog.html">Web Log</a></li>
+      <li><a href="weblog.html" class="active">Web Log</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a href="faq.html" class="active">FAQ</a></li>
+      <li><a href="faq.html">FAQ</a></li>
     </ul>
   </div>
 </nav>
 <header class="page-hero">
   <div class="wrap">
-    <div class="eyebrow">Questions, answered</div>
-    <h1>FA<span class="outline">Q.</span></h1>
-    <p class="lede">The questions we get most often from client teams, account leads, and anyone scoping analytics work. If it isn't answered here, ask the team on Slack.</p>
+    <div class="eyebrow"><a class="backlink" href="weblog.html">← The Web Log</a></div>
+    <h1 style="margin-top:26px">Zero To Adobe<br><span class="outline">Certified.</span></h1>
+    <p class="lede">DEPT runs a role-based, hands-on Adobe Enablement Program: three separate tracks, live internal sessions from our Adobe expert, a real sandbox with answer keys, and a certification target for every track. This entry explains the whole thing: how you get assigned, what you'll actually do week to week, and how long it honestly takes.</p>
+    <div class="artmeta"><span>Entry 002</span><span>~12 min read</span><span>Training · AEP · CJA · RTCDP + AJO</span><span>DEPT · Adobe Partner Enablement · v2 · July 2026</span></div>
   </div>
 </header>
 
 <section style="padding-top:20px">
-  <div class="wrap">
-    <div class="faq">
-      <details class="reveal">
-        <summary>When should the Web Analytics team get involved in a project?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>As early as possible, ideally the moment a redesign, replatform, or new build is scoped. The single most expensive mistake we see is bringing analytics in after development is done: by then the data layer doesn't exist, dev capacity is gone, and the site launches blind.</p><p>If a project touches the website's templates, it touches tracking. Loop us in at discovery.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>What exactly is a data layer, and why does this site mention it constantly?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>It's a structured JavaScript object (<span class='mono'>window.dataLayer</span>) the website uses to describe what's happening, page views, add-to-carts, purchases, in a consistent format. Google Tag Manager reads it and translates each event into GA4 hits and marketing pixels.</p><p>It's mentioned constantly because everything we deliver depends on it. Tags built on a broken data layer produce broken data, no matter how well the tags themselves are configured.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>What happens to tracking when a website is redesigned?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>By default: it breaks. The data layer is code living inside the site's templates, so when templates are rebuilt on a new CMS or design, it does not carry forward. GTM keeps firing, but against a page structure that no longer matches, events go silent or fire wrong.</p><p>That's why the migration playbook exists: re-specify the data layer for the new build, QA it, rebuild the container, and launch with verified tracking.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>Do you just move existing tags, or build new tracking too?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>Both models exist. A lift-and-shift migrates exactly what's there today, it's the rare case. Most engagements are migrate-plus-build: everything existing moves over, and we design new tracking for the new site's features, since a redesign always introduces journeys the old setup never measured.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>How long does a website migration take?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>It tracks the website build itself. The specs and audit phases front-load before development; data layer QA runs alongside dev sprints; GTM and GA4 work stages in parallel; launch syncs with the site go-live. As a rough shape: small sites run a few weeks of analytics effort, large multi-template builds run several months, spread across the project timeline.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>What do you need from a client to get started?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>Access, mainly: GA4 (editor), GTM (publish), the ad platforms where pixels live, the staging environment for the new site, and a line to the development team. Plus any existing tracking documentation, though we routinely start from zero documentation; the audit phase exists for exactly that reason.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>Who actually writes the data layer code?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>The development team, either DEPT's own developers when we're building the site, or the client's dev team when they own the codebase. Either way, we write the specification (every event, parameter, type, and sample push), align it with the devs for feasibility, and QA the implementation against the spec. Clear division: they own the code, we own the requirements and the verification.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>GA4 or the Adobe stack, how do clients choose?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>We start with a platform evaluation if one is needed, and recommend the right platform for the client's reality rather than a default. As a rule of thumb, GA4 + GTM covers most measurement needs. The Adobe stack (AEP, CJA, RT-CDP, AJO) is recommended only when the client already holds Adobe licenses and has genuine cross-channel, person-level requirements, because it costs a lot, in licensing and in build effort. We work both sides, so the recommendation is honest.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>Can we set up GA4 events without a data layer?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>We don't recommend it. Without a data layer, tags have to guess from the page itself: DOM-scraping triggers, CSS selectors, URL rules. Those break silently every time the site's markup changes, so the setup is simply not stable. We'll only go this route when a data layer genuinely cannot be implemented, and even then it's flagged as a temporary, fragile arrangement with a plan to move to a proper data layer.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>What's the difference between Adobe Analytics and CJA?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>Adobe Analytics is the legacy web-analytics product, built on report suites and a web-centric data model. Customer Journey Analytics is its successor on the Experience Platform: it reports on any dataset in AEP, web, app, CRM, offline, stitched by identity into person-level journeys. Migrating between them means redesigning the data model (XDM), not just moving settings.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>The site already launched and tracking is broken. Too late?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>Not too late, just more urgent. We run the audit against the live site, triage what's recoverable, prioritize revenue-critical tracking (conversions, pixels) first, and rebuild the data layer with the dev team in fast follow. Data lost before the fix can't be recovered, so the sooner we start, the smaller the gap.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>Do you support things after launch?<span class="ind">+</span></summary>
-        <div class="faq-body"><p>Yes, every migration ends with a hypercare window: daily monitoring, old-vs-new data comparisons, and rapid fixes for issues only real traffic reveals. Beyond hypercare, ongoing support, new pixel work, and reporting builds are all standard engagements.</p></div>
-      </details>
+  <div class="wrap art">
+
+    <div class="tldr reveal">
+      <h4>TL;DR</h4>
+      <p><strong>Three tracks, one per role:</strong> AEP for the people who build the platform, CJA for the analysts who report on it, RTCDP + AJO for the people who activate it. Tracks are assigned based on experience and interest; nobody does all three in sequence.</p>
+      <p><strong>Every track has the same rhythm:</strong> live session → hands-on task in the DEPT sandbox → review → next session, ending in an Adobe certification.</p>
+      <p><strong>Honest budgets:</strong> roughly 80 hours for CJA, 120 for AEP, 120 for RTCDP + AJO. Most of those hours are deliberate hands-on practice, not videos.</p>
     </div>
+
+    <h2 class="reveal"><span class="no">01</span>What The Program Is</h2>
+    <p class="reveal">Because DEPT is an Adobe partner, we can package four things that usually live apart into one program. Live internal training: short webinar-style sessions, about 45 minutes each, run by DEPT's Adobe expert; concepts and a live walkthrough first, then a hands-on task to complete before the next session. Every session is recorded, so the recordings become an internal on-demand library for every future hire. Official Adobe courses: the self-paced on-demand videos on each certification path, which slot around project work. Hands-on practice: every trainee gets a DEPT sandbox with a frozen sample dataset, so labs have known-correct answers to check against. And certification prep: each track carries a specific exam target, prep courses, and a practice test.</p>
+
+    <div class="anim-fig reveal" aria-hidden="true"><svg viewBox="0 0 840 280" preserveAspectRatio="xMidYMid meet">
+      <rect x="40" y="30" width="190" height="38" fill="#f4f4f2" stroke="#8a8a86" stroke-width="1"/><text x="135" y="54" font-size="11.5" fill="#0a0a0a" text-anchor="middle">Live internal sessions</text>
+      <rect x="40" y="90" width="190" height="38" fill="#f4f4f2" stroke="#8a8a86" stroke-width="1"/><text x="135" y="114" font-size="11.5" fill="#0a0a0a" text-anchor="middle">Official Adobe courses</text>
+      <rect x="40" y="150" width="190" height="38" fill="#f4f4f2" stroke="#8a8a86" stroke-width="1"/><text x="135" y="174" font-size="11.5" fill="#0a0a0a" text-anchor="middle">Sandbox + answer keys</text>
+      <rect x="40" y="210" width="190" height="38" fill="#f4f4f2" stroke="#8a8a86" stroke-width="1"/><text x="135" y="234" font-size="11.5" fill="#0a0a0a" text-anchor="middle">Certification prep</text>
+      <circle class="ar-conv" style="--tx:190px;--ty:90px" cx="230" cy="49" r="5" fill="#2f5bff"/>
+      <circle class="ar-conv v2" style="--tx:190px;--ty:30px" cx="230" cy="109" r="5" fill="#2f5bff"/>
+      <circle class="ar-conv v3" style="--tx:190px;--ty:-30px" cx="230" cy="169" r="5" fill="#2f5bff"/>
+      <circle class="ar-conv v4" style="--tx:190px;--ty:-90px" cx="230" cy="229" r="5" fill="#2f5bff"/>
+      <g class="ar-node"><rect x="420" y="104" width="170" height="70" fill="#2f5bff"/>
+        <text x="505" y="134" font-size="13" fill="#fff" text-anchor="middle" font-weight="700">One program</text>
+        <text x="505" y="152" font-size="10.5" fill="#fff" text-anchor="middle">role-based · hands-on</text></g>
+      <line x1="590" y1="139" x2="680" y2="139" stroke="#8a8a86" stroke-width="1" opacity=".5"/>
+      <circle class="ar-dot2" style="--tx:90px;--ty:0px" cx="590" cy="139" r="5" fill="#2f5bff"/>
+      <text x="688" y="134" font-size="11.5" fill="#2f5bff" font-weight="700">Trained +</text>
+      <text x="688" y="150" font-size="11.5" fill="#2f5bff" font-weight="700">Adobe certified</text>
+      <text x="40" y="270" font-size="11" fill="#8a8a86">four things that usually live apart, packaged into one path</text>
+    </svg></div>
+
+    <h2 class="reveal"><span class="no">02</span>Which Track Will I Be On?</h2>
+    <p class="reveal">Tracks will be assigned, based on the experience and interest (onboarding steps 2-3), not all three in sequence. Use this table to see where each role lands. Anyone working near the platform gets the AEP <strong>concepts</strong> they need inside their own track.</p>
+    <table class="reveal">
+      <tr><th>Your role</th><th>Your track</th><th>What you will do after it</th></tr>
+      <tr><td>Analyst</td><td><strong>CJA</strong></td><td>Build data views, components, dashboards; answer business questions with data.</td></tr>
+      <tr><td>Data engineer</td><td><strong>AEP</strong></td><td>Set up schemas, datasets, Tags and ingestion; get data into the platform correctly.</td></tr>
+      <tr><td>Architect</td><td><strong>AEP</strong></td><td>Design XDM schemas and the end-to-end data flow: how data arrives, is stored, and is activated.</td></tr>
+      <tr><td>Marketing / activation practitioner</td><td><strong>RTCDP + AJO</strong></td><td>Build audiences, activate to destinations, orchestrate journeys and messages.</td></tr>
+    </table>
+
+    <h2 class="reveal"><span class="no">03</span>How Onboarding Works</h2>
+    <p class="reveal">The standardized workflow for every new trainee, from identification to certification. Same seven steps, every time:</p>
+
+    <div class="anim-fig reveal" aria-hidden="true"><svg viewBox="0 0 840 150" preserveAspectRatio="xMidYMid meet">
+      <line x1="60" y1="66" x2="720" y2="66" stroke="#8a8a86" stroke-width="1" opacity=".45"/>
+      <circle class="en-pipe" cx="60" cy="66" r="5.5" fill="#2f5bff"/>
+      <circle class="en-node" cx="60" cy="66" r="9" stroke="#0a0a0a" stroke-width="1.5" fill="#fff"/>
+      <circle class="en-node" style="animation-delay:.95s" cx="170" cy="66" r="9" stroke="#0a0a0a" stroke-width="1.5" fill="#fff"/>
+      <circle class="en-node" style="animation-delay:1.9s" cx="280" cy="66" r="9" stroke="#0a0a0a" stroke-width="1.5" fill="#fff"/>
+      <circle class="en-node" style="animation-delay:2.85s" cx="390" cy="66" r="9" stroke="#0a0a0a" stroke-width="1.5" fill="#fff"/>
+      <circle class="en-node" style="animation-delay:3.8s" cx="500" cy="66" r="9" stroke="#0a0a0a" stroke-width="1.5" fill="#fff"/>
+      <circle class="en-node" style="animation-delay:4.75s" cx="610" cy="66" r="9" stroke="#0a0a0a" stroke-width="1.5" fill="#fff"/>
+      <circle class="en-node" style="animation-delay:5.7s" cx="720" cy="66" r="9" stroke="#0a0a0a" stroke-width="1.5" fill="#fff"/>
+      <text x="60" y="104" font-size="9.5" fill="#0a0a0a" text-anchor="middle">identify</text>
+      <text x="170" y="104" font-size="9.5" fill="#0a0a0a" text-anchor="middle">assess</text>
+      <text x="280" y="104" font-size="9.5" fill="#0a0a0a" text-anchor="middle">assign</text>
+      <text x="390" y="104" font-size="9.5" fill="#0a0a0a" text-anchor="middle">sandbox</text>
+      <text x="500" y="104" font-size="9.5" fill="#0a0a0a" text-anchor="middle">sessions</text>
+      <text x="610" y="104" font-size="9.5" fill="#0a0a0a" text-anchor="middle">courses</text>
+      <text x="720" y="104" font-size="9.5" fill="#2f5bff" text-anchor="middle" font-weight="700">certify</text>
+    </svg></div>
+
+    <ol class="reveal">
+      <li><strong>Identify the trainee</strong> and their upcoming project needs.</li>
+      <li><strong>Assess experience and interest</strong>: a short baseline conversation or questionnaire.</li>
+      <li><strong>Assign a track</strong> using the role table above.</li>
+      <li><strong>Provision sandbox access</strong>: the DEPT engineering lead requests AEP + CJA sandbox access.</li>
+      <li><strong>Schedule the internal live sessions</strong>: DEPT's Adobe expert runs them and assigns the hands-on tasks.</li>
+      <li><strong>Enroll in the track's Adobe on-demand courses</strong> (the DEPT engineering lead manages enrollment) alongside the sessions.</li>
+      <li><strong>Certify</strong>: practice test, then the live exam for the track's target credential.</li>
+    </ol>
+
+    <h2 class="reveal"><span class="no">04</span>The Rhythm Every Track Follows</h2>
+    <p class="reveal">All three tracks run the same loop, repeated each session, and finish with a certification push. It's deliberately simple so it scales to any number of trainees and any platform: the expert explains and demos live using genericized project docs, you build it yourself in the sandbox between sessions and check your work against the frozen-dataset anchors, the next session opens by reviewing that work and building on it, and once the modules are done you move to the Adobe courses, the practice test, and the live exam.</p>
+
+    <div class="anim-fig reveal" aria-hidden="true"><svg viewBox="0 0 840 260" preserveAspectRatio="xMidYMid meet">
+      <circle cx="420" cy="130" r="80" fill="none" stroke="#8a8a86" stroke-width="1" stroke-dasharray="5 7" opacity=".55"/>
+      <g class="en-orbit"><circle cx="420" cy="50" r="6" fill="#2f5bff"/></g>
+      <g class="en-loopnode"><rect x="360" y="14" width="120" height="30" fill="#0a0a0a"/><text x="420" y="34" font-size="11" fill="#fff" text-anchor="middle">1 · theory</text></g>
+      <g class="en-loopnode" style="animation-delay:1.75s"><rect x="524" y="115" width="130" height="30" fill="#2f5bff"/><text x="589" y="135" font-size="11" fill="#fff" text-anchor="middle">2 · hands-on task</text></g>
+      <g class="en-loopnode" style="animation-delay:3.5s"><rect x="356" y="216" width="128" height="30" fill="#0a0a0a"/><text x="420" y="236" font-size="11" fill="#fff" text-anchor="middle">3 · review + build</text></g>
+      <g class="en-loopnode" style="animation-delay:5.25s"><rect x="188" y="115" width="128" height="30" fill="#0a0a0a"/><text x="252" y="135" font-size="11" fill="#fff" text-anchor="middle">4 · cert prep</text></g>
+      <text x="40" y="34" font-size="11" fill="#8a8a86">the loop, every session:</text>
+    </svg></div>
+
+    <h2 class="reveal"><span class="no">05</span>AEP By Role: Build It vs Read It</h2>
+    <p class="reveal">Everything in the Experience Cloud stands on Adobe Experience Platform, but the tracks need it at different depths, and this distinction is what keeps the program fast:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      <div class="jd reveal">
+        <span class="jrole">AEP track</span>
+        <h4>Build It</h4>
+        <ul><li>Schemas, field groups, datasets, Tags, ingestion</li><li>For the people who set the platform up</li><li>The deepest and most technical treatment</li></ul>
+      </div>
+      <div class="jd reveal">
+        <span class="jrole">CJA and RTCDP + AJO tracks</span>
+        <h4>Read It</h4>
+        <ul><li>Opens with a one-session <strong>"AEP for readers"</strong> module</li><li>Read a schema, search for a field, copy a field path (for example, to create a new dimension in a data view), preview a dataset</li><li>No schema building, ever. Proven: it's exactly how our first analyst cohort ramped in one session</li></ul>
+      </div>
+    </div>
+    <p class="reveal">The foundation under all three: <strong>XDM schemas · datasets · identity &amp; ECID · Real-Time Customer Profile · data governance</strong>.</p>
+
+    <h2 class="reveal"><span class="no">06</span>Track 1 · AEP</h2>
+    <span class="trackchip reveal">For data engineers &amp; architects · the most technical track</span>
+    <p class="reveal">The people who get data <strong>into</strong> the platform correctly. Two roles share this track with different emphasis: the <strong>architect</strong> designs the XDM schemas and the end-to-end flow (how data arrives, is stored, and is activated); the <strong>data engineer</strong> implements to that spec: the data layer push, Tags configuration, and source connections. Required background: comfort with web and data concepts and reading JSON. No prior Adobe experience needed.</p>
+    <p class="reveal"><strong>What the sessions cover:</strong></p>
+    <ul class="reveal">
+      <li>The Experience Cloud stack and where AEP sits</li>
+      <li>XDM: classes, field groups, data types; schema design by the architect, implementation by the engineer</li>
+      <li>Schemas and datasets: design and preview</li>
+      <li><strong>Adobe Tags (Launch)</strong>: property setup, data elements, rules, the Web SDK extension, publishing flow</li>
+      <li><strong>Data layer to schema mapping</strong>: how Tags picks events off the data layer and maps them to XDM paths; when data skips Tags entirely (app code or mobile sends direct)</li>
+      <li>Web SDK and datastreams: how events reach the platform</li>
+      <li><strong>Sources configuration</strong>: FTP, cloud storage, database and streaming (HTTP API / server-to-server) connections; gathering keys, endpoints and paths</li>
+      <li>Identity, ECID and the Real-Time Customer Profile</li>
+      <li>Ingestion: streaming vs batch (for example, AI-chat events often arrive as a batch push from the application team, not via the data layer)</li>
+      <li>Data governance basics</li>
+    </ul>
+    <p class="reveal"><strong>Representative hands-on tasks:</strong> build a schema with standard and custom field groups and create a dataset; configure a Tags property with one data element and one rule, mapping a data-layer value to an XDM path; send events (Web SDK or Postman) and confirm they land in dataset preview; trace an event's identity end to end.</p>
+    <p class="reveal"><strong>Adobe courses:</strong> "Get started with AEP for data architects and data engineers" (Experience League, ~16 modules, about 5 hours). Tags has no standalone certification; it's covered inside the AEP foundations content and this track's live sessions.</p>
+    <table class="reveal">
+      <tr><th>Level</th><th>Exam</th><th>Exam ID</th><th>Prep</th></tr>
+      <tr><td><strong>Foundation (target)</strong></td><td>AEP Technical Foundations</td><td>AD0-E600</td><td>AEP data architects &amp; engineers path</td></tr>
+      <tr><td>Expert (stretch)</td><td>Real-Time CDP Developer Expert / RTCDP technical</td><td>AD0-E605 / AD0-E615</td><td>After AD0-E600 + 1-3 yrs experience</td></tr>
+    </table>
+    <p class="reveal"><strong>DEPT lab assets.</strong> Ready: sandbox build guide, event generator, frozen sample dataset and answer key. In development: a dedicated Tags (Launch) lab beyond the existing implementation-spec walkthroughs.</p>
+
+    <h2 class="reveal"><span class="no">07</span>Track 2 · CJA</h2>
+    <span class="trackchip reveal">For analysts · the most in-demand track</span>
+    <p class="reveal">Analysts who build reports and dashboards and answer business questions with data. You are an analyst? This is your track. It opens with the built-in <strong>AEP for readers</strong> module: read a schema, search for a field, copy a field path, preview a dataset; one session, no schema building. A background in Adobe Analytics or GA is helpful but not required.</p>
+    <p class="reveal"><strong>What the sessions cover:</strong></p>
+    <ul class="reveal">
+      <li>AEP for readers: schemas, datasets and identity, from the reading side</li>
+      <li>The mental-model shifts coming from Adobe Analytics or GA into CJA</li>
+      <li>Connections vs data views; the two-data-view model; sessionization</li>
+      <li>Derived fields and counting patterns (no native Occurrences)</li>
+      <li>Filters (segments) and calculated metrics</li>
+      <li>Workspace: panels, tables, visualizations, date ranges</li>
+      <li>QA methodology and dev-to-prod governance</li>
+    </ul>
+    <p class="reveal"><strong>Representative hands-on tasks:</strong> find 5 schema fields and their real values in dataset preview; create a data view and build derived fields, calculated metrics and filters; assemble a dashboard and validate every tile against the anchors; a capstone where you rebuild a mini dashboard solo and self-check.</p>
+    <p class="reveal"><strong>Adobe courses:</strong> CJA Foundations (course 1309), CJA B2B Edition Foundations (course 1337), CJA Business Practitioner Professional (course 1062, CJA-BP200), and the practice test (course 1010).</p>
+    <table class="reveal">
+      <tr><th>Level</th><th>Exam</th><th>Exam ID</th><th>Prep</th></tr>
+      <tr><td><strong>Professional (target)</strong></td><td>CJA Business Practitioner Professional</td><td>AD0-E608</td><td>Courses 1309 → 1337 → 1062 → practice 1010</td></tr>
+      <tr><td>Expert (stretch)</td><td>CJA Developer Expert</td><td>AD0-E604</td><td>CJA developer path + AEP foundations</td></tr>
+    </table>
+    <p class="reveal"><strong>DEPT lab assets.</strong> Ready and field-tested: nine-plus genericized guides, live build walkthroughs, answer keys and the frozen dataset, plus a 4-session ramp and an 8-session deep-dive curriculum.</p>
+
+    <h2 class="reveal"><span class="no">08</span>Track 3 · RTCDP + AJO</h2>
+    <span class="trackchip reveal">For activation &amp; marketing practitioners</span>
+    <p class="reveal">Practitioners focused on activation: building audiences, sending them to destinations, and orchestrating journeys and messages. It opens with the same one-session <strong>AEP for readers</strong> module as the CJA track, plus the Real-Time Customer Profile model. CJA familiarity helps for measuring what the journeys do.</p>
+    <p class="reveal"><strong>What the sessions cover:</strong></p>
+    <ul class="reveal">
+      <li>AEP for readers: schemas, datasets, identity and the Real-Time Customer Profile</li>
+      <li>RTCDP: audiences and segmentation, merge policies</li>
+      <li>RTCDP: destinations, activation, consent and governance</li>
+      <li>AJO: journeys and campaigns</li>
+      <li>AJO: messages and channels; offers and decisioning</li>
+      <li>Measuring activation with CJA</li>
+    </ul>
+    <p class="reveal"><strong>Representative hands-on tasks:</strong> build an audience and (sandbox permitting) configure a destination; design a simple journey and a message; create an offer and a basic decision.</p>
+    <p class="reveal"><strong>Adobe courses:</strong> RTCDP Business Practitioner prep (course 1183); AJO for Business Practitioners Professional (course 1065, AJO-BP200, about 6 hours).</p>
+    <table class="reveal">
+      <tr><th>Level</th><th>Exam</th><th>Exam ID</th><th>Prep</th></tr>
+      <tr><td><strong>Professional (target)</strong></td><td>Real-Time CDP Business Practitioner Professional</td><td>AD0-E602 / AD0-E614</td><td>Course 1183</td></tr>
+      <tr><td><strong>Professional (target)</strong></td><td>Journey Optimizer Business Practitioner Professional</td><td>AD0-E607</td><td>Course 1065 (AJO-BP200)</td></tr>
+      <tr><td>Expert (stretch)</td><td>RTCDP Developer Expert · AJO Developer Expert</td><td>AD0-E605 · AD0-E606</td><td>Developer paths + AEP foundations</td></tr>
+    </table>
+    <div class="nuance reveal">
+      <p class="nlab">Honest status</p>
+      <p><strong>DEPT lab assets for this track are in development.</strong> Only conceptual material exists today: it needs new theory content, new sandbox labs (no RTCDP/AJO sandbox is set up yet), and new answer keys. Recommendation: run it Adobe-course-led first, with DEPT labs added as the sandbox is built out.</p>
+    </div>
+
+    <h2 class="reveal"><span class="no">09</span>Certification Tiers</h2>
+    <p class="reveal">Adobe uses a consistent two-tier model for each product: <strong>Business Practitioner Professional</strong> (entry level, about 6 months of experience) then <strong>Developer Expert</strong> (1 to 3 years, leaning heavily on AEP foundations). Every track above carries its own certification map; this program targets the Professional tier first, with Expert as a later stretch.</p>
+    <div class="nuance reveal">
+      <p class="nlab">Before booking any exam</p>
+      <p>Exam IDs and course codes come from Adobe's course catalog. Confirm exact exam metadata (question count, duration, passing score, price) and any exam-ID revisions on a logged-in Adobe certification page before booking: Adobe periodically re-releases exams under new IDs. Example: the RTCDP Professional exam appears as both AD0-E602 and the newer AD0-E614.</p>
+    </div>
+
+    <h2 class="reveal"><span class="no">10</span>How Long It Takes</h2>
+    <p class="reveal">Honest planning numbers, as rough averages: <strong>~80 hours for CJA, ~120 for AEP, ~120 for RTCDP + AJO</strong> to get trained and Professional-cert-ready. Converted to calendar time: one week at 100% availability is 40 hours, 50% is about 20 hours a week, 25% is about 10.</p>
+
+    <div class="anim-fig reveal" aria-hidden="true"><svg viewBox="0 0 840 200" preserveAspectRatio="xMidYMid meet">
+      <text x="40" y="52" font-size="11.5" fill="#0a0a0a" font-weight="700">CJA</text>
+      <rect x="150" y="38" width="373" height="18" fill="#f4f4f2"/>
+      <rect class="en-bar" x="150" y="38" width="373" height="18" fill="#2f5bff" opacity=".65"/>
+      <text x="533" y="52" font-size="11" fill="#8a8a86">~80 h</text>
+      <text x="40" y="102" font-size="11.5" fill="#0a0a0a" font-weight="700">AEP</text>
+      <rect x="150" y="88" width="560" height="18" fill="#f4f4f2"/>
+      <rect class="en-bar b2" x="150" y="88" width="560" height="18" fill="#2f5bff"/>
+      <text x="720" y="102" font-size="11" fill="#8a8a86">~120 h</text>
+      <text x="40" y="152" font-size="11.5" fill="#0a0a0a" font-weight="700">RTCDP+AJO</text>
+      <rect x="150" y="138" width="560" height="18" fill="#f4f4f2"/>
+      <rect class="en-bar b3" x="150" y="138" width="560" height="18" fill="#0a0a0a"/>
+      <text x="720" y="152" font-size="11" fill="#8a8a86">~120 h</text>
+      <text x="40" y="188" font-size="10.5" fill="#8a8a86">most of every bar is hands-on sandbox time, not videos</text>
+    </svg></div>
+
+    <table class="reveal">
+      <tr><th>Track</th><th>Est. effort to Professional</th><th>25% (~10h/wk)</th><th>50% (~20h/wk)</th><th>100% (~40h/wk)</th></tr>
+      <tr><td>CJA (to AD0-E608)</td><td><strong>~80 hours</strong></td><td>~8 weeks</td><td>~4 weeks</td><td>~2 weeks</td></tr>
+      <tr><td>AEP (to AD0-E600)</td><td><strong>~120 hours</strong></td><td>~12 weeks</td><td>~6 weeks</td><td>~3 weeks</td></tr>
+      <tr><td>RTCDP + AJO (two Professional exams)</td><td><strong>~120 hours</strong></td><td>~12 weeks</td><td>~6 weeks</td><td>~3 weeks</td></tr>
+    </table>
+
+    <p class="reveal"><strong>Why these numbers are bigger than the certification math.</strong> The Adobe courses and live sessions account for roughly a quarter of each budget. The rest is deliberate hands-on sandbox practice, and that's on purpose: passing an exam and being safe on a client project are two different bars. The extra hours buy build-break-rebuild reps in the sandbox, the capstone builds, working through genericized real project docs, and review time with the expert. These are rough averages for someone with a general analytics background; calibrate per person after the first week.</p>
+    <p class="reveal"><strong>What the hours cover, per track.</strong> CJA (~80h): roughly 6h of live sessions, 8h of Adobe courses, 55h of hands-on data-view, component and dashboard reps, and 10h of practice test and review. AEP (~120h): roughly 10h of sessions, 10h of courses, 85h of hands-on across schemas, Tags (Launch), data-layer mapping, sources configuration and identity tracing (the deepest lab work of the three), and 15h of review. RTCDP + AJO (~120h): two Professional exams, so roughly 10h of sessions, 12h of courses, 80h of hands-on across audiences, destinations, journeys, messages and decisioning, and 18h of prep spread over two practice tests.</p>
+
+    <h2 class="reveal"><span class="no">11</span>Adobe Partnership: Courses &amp; Vouchers</h2>
+    <p class="reveal">As an Adobe partner, DEPT can route trainees to official learning and certification rather than piecing it together. The <strong>Adobe Partner Hub</strong> gives partners the on-demand training catalog and team enrollments for the courses on each certification path. <strong>Experience League</strong> offers free self-serve courses and per-product certification prep guides; the basic prep courses need no special credentials. <strong>Adobe Premium Learning</strong> is a paid tier bundling deeper content and certification vouchers.</p>
+    <div class="nuance reveal">
+      <p class="nlab">Open item</p>
+      <p>We are verifying what level of access DEPT's partnership currently includes (premium vs standard on-demand), based on what Adobe provided to our first trainee.</p>
+    </div>
+
+    <p class="reveal">Want the technical companion piece? <a href="article-aep.html" style="color:var(--signal)">Entry 001 explains how the Adobe stack actually works</a>, the platform these tracks train you on.</p>
+    <p class="reveal" style="margin-top:44px"><a class="backlink" href="weblog.html">← Back to The Web Log</a></p>
+
   </div>
 </section>
 <footer>
